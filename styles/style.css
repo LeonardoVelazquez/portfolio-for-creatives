@@ -32,14 +32,7 @@
 /* TODO: Replace these Google Fonts with the ones you want to use on your site. */
 /* Remember, the more fonts you load, the longer it can take for your page to load. */
 
-/* Eczar Font (for headers or special text) */
-@import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&display=swap");
-
-/* Rubik Font (clean and modern for body text) */
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap");
-
-/* Inter Font (great for readability and minimal design) */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap");
 
 /*
 
@@ -102,63 +95,63 @@
 
 :root {
   /* Typography */
-  --font-family-body: "Inter", sans-serif;
-  --font-family-heading: "Eczar", serif;
-  --font-family-project-title: "Eczar", serif;
+  --font-family-body: "Roboto", sans-serif;
+  --font-family-heading: "Sofia Sans Extra Condensed", sans-serif;
+  --font-family-project-title: "Sofia Sans Extra Condensed", sans-serif;
   /* Core Colours */
   --color-text-primary: #222;
   --color-text-secondary: #333;
-  --color-accent-primary: #5200ff;
-  --color-accent-secondary: #ff057c;
-  --color-overlay-primary: rgba(82, 0, 255, 0.5);
+  --color-accent-primary: #d60606;
+  --color-accent-secondary: #d60606;
+  --color-overlay-primary: rgba(220, 34, 5, 0.839);
   --color-highlight: lemonchiffon;
-  --color-fallback: #ff057c; /* Fallback color for glitch effect on 404 page */
+  --color-fallback: #d60606; /* Fallback color for glitch effect on 404 page */
   /* Backgrounds */
   --color-bg: #fdfdfd;
   --color-bg-about: #f5f5f5;
   --color-bg-footer: #f5f5f5;
   --color-bg-holding-page: rgba(82, 0, 255, 0.6);
   /* Headings */
-  --h1-color: #5200ff;
-  --h2-color: #5200ff;
-  --h3-color: #5200ff;
-  --h4-color: #5200ff;
-  --h5-color: #5200ff;
-  --h6-color: #5200ff;
+  --h1-color: #000000;
+  --h2-color: #000000;
+  --h3-color: #000000;
+  --h4-color: #000000;
+  --h5-color: #000000;
+  --h6-color: #000000;
   /* Special Text Colours */
   --color-text-holding-title: #ebedf0;
   --color-text-project-category: #ffffff;
   --color-text-project-description: #222;
   --color-text-project-sidebar: #222;
-  --color-text-project-title: #5200ff;
+  --color-text-project-title: #d60606;
   --color-text-work-grid-title: #ffffff;
   /* Link States */
-  --color-link: #5200ff;
+  --color-link: #d60606;
   --color-link-hover: #111;
-  --color-link-visited: #5200ff;
+  --color-link-visited: #d60606;
   /* Navigation */
-  --color-nav-link: #5200ff;
-  --color-nav-link-hover: #321575;
-  --color-nav-arrow: #5200ff;
+  --color-nav-link: #d60606;
+  --color-nav-link-hover: #d60606;
+  --color-nav-arrow: #d60606;
   --color-nav-arrow-hover: #000;
-  --color-nav-arrow-stroke: #5200ff;
+  --color-nav-arrow-stroke: #d60606;
   --color-nav-arrow-stroke-hover: #000;
   /* Components */
   --color-bg-full-width: #f5f5f5;
   --color-bg-project-description: #f5f5f5;
-  --color-bg-sidebar-project: orangered;
+  --color-bg-sidebar-project: transparent;
   --color-bg-sidebar-work: lemonchiffon;
   --color-gradient-hero: linear-gradient(90deg, #ff00ff, #00ffff);
   --color-gradient-project-details: linear-gradient(
     -225deg,
-    #ff057c 0%,
-    #8d0b93 50%,
-    #321575 100%
+    #d60606 0%,
+    #d60606 50%,
+    #d60606 100%
   );
   /* Special Elements */
   --color-icon-heart: darkred;
   --color-text-holding-footer: #f8f8ff;
-  --color-bg-selection: #5200ff;
+  --color-bg-selection: #ff0000;
   --color-shadow-stroke: rgba(0, 0, 0, 0.4);
   /* Assets */
   --image-noise-texture: url(/assets/temp/noise.svg);
@@ -208,7 +201,9 @@
 html {
   box-sizing: border-box; /* Makes sure padding and borders don't add extra width to elements */
   scroll-behavior: smooth; /* Adds smooth scrolling between sections */
-  cursor: url("../assets/temp/up-cursor.png"), auto !important; /* Custom cursor (change the URL below to use your own) */
+  /* cursor: url("../assets/temp/up-cursor.png"), auto !important;  */
+
+  /* Custom cursor (change the URL below to use your own) */
 
   /* TODO: Replace the URL above to add a custom cursor. 
      If you want to use the default browser cursor, just delete this line. */
@@ -239,6 +234,7 @@ body {
   background: var(
     --color-bg-selection
   ); /* Uses your custom color for highlighted text */
+  color: white;
 }
 
 /* ---------------------------------------- */
@@ -685,6 +681,7 @@ a.nav-link-primary:hover {
   min-height: 80vh; /* Takes up most of the screen height */
   display: flex;
   flex-direction: column;
+  background: #111111;
 }
 .hero-header {
   min-height: 6rem; /* Space reserved for logo + nav */
@@ -710,48 +707,24 @@ a.nav-link-primary:hover {
   width: 3rem;
   /* TODO: Adjust the width of the logo on mobile devices here */
 }
-
+.logo {
+  fill: #d60606;
+  transition: 200ms;
+  transition-timing-function: ease-in-out;
+}
+.logo:hover {
+  fill: goldenrod;
+}
 .hero-headline-wrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
+
   flex: 1;
   gap: 3rem;
   align-items: center;
   justify-content: center;
-  padding: var(--padding-small);
   text-align: center; /* Keeps text centered */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    min-height: 100vh;
-    background: #1a1a1a;
-    overflow: hidden;
-  }
-
-  .wrapper {
-    display: grid;
-    width: 100vw;
-    height: 100vh;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 2px;
-  }
-
-  .column {
-    display: grid;
-    grid-template-rows: repeat(auto-fill, minmax(1rem, 1fr));
-    gap: 2px;
-  }
-
-  .box {
-    width: 100%;
-    height: 100%;
-    transition: background-color 0.3s ease;
-  }
 }
 
 .hero-icon {
@@ -790,7 +763,8 @@ a.nav-link-primary:hover {
 
 .full-width-section {
   width: 100%;
-  min-height: 80vh; /* Takes up most of the screen height */
+  /* min-height: 80vh; */
+  /* Takes up most of the screen height */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -887,6 +861,7 @@ a.nav-link-primary:hover {
   height: auto;
   position: relative; /* Needed to position the overlay */
 }
+
 /* Masonry Overlay Text */
 .overlay-container:hover .overlay {
   opacity: 1;
@@ -918,6 +893,11 @@ a.nav-link-primary:hover {
     --color-overlay-primary
   ); /* Background color of the overlay */
   transition: opacity var(--duration-normal), visibility var(--duration-normal);
+  /* custom drop shadow by leo */
+
+  box-shadow: -6px 29px 63px -23px rgba(0, 0, 0, 1) inset;
+  -webkit-box-shadow: -6px 29px 63px -23px rgba(0, 0, 0, 1) inset;
+  -moz-box-shadow: -6px 29px 63px -23px rgba(0, 0, 0, 1) inset;
 }
 
 /* Hover effect on work page grid items */
@@ -1010,6 +990,158 @@ a.nav-link-primary:hover {
 /* 📱 MOBILE FOOTER LAYOUT                                                    */
 /* Designed with mobile-first approach using CSS Grid                          */
 /* -------------------------------------------------------------------------- */
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  overflow-x: hidden !important;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  outline: none !important;
+  color: #fff;
+}
+
+.border-shape {
+  background: #d60606 none repeat scroll 0 0;
+  color: #fff;
+  display: block;
+  height: 3px;
+  left: 0;
+  margin: 20px auto;
+  position: relative;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 80px;
+}
+
+.border-shape::before {
+  background: #d60606 none repeat scroll 0 0;
+  bottom: 0;
+  content: "";
+  height: 1px;
+  left: 80px;
+  margin: 0 auto;
+  position: absolute;
+  text-align: center;
+  top: 1px;
+  width: 100px;
+}
+
+.border-shape::after {
+  background: #d60606 none repeat scroll 0 0;
+  bottom: 0;
+  content: "";
+  height: 1px;
+  margin: 0 auto;
+  position: absolute;
+  right: 80px;
+  text-align: center;
+  top: 1px;
+  width: 100px;
+}
+
+/*FOOTER*/
+footer {
+  width: 100%;
+  background-color: #121619;
+  color: #fff;
+}
+
+.top_header {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.top_header section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.top_header span {
+  padding: 0 1rem;
+}
+
+.top_header .fa {
+  color: #d60606;
+  font-size: 35px;
+}
+
+footer .border-shape {
+  width: 40%;
+}
+
+footer .border-shape::before {
+  width: 100%;
+  left: 120px;
+}
+
+footer .border-shape::after {
+  width: 100%;
+  right: 120px;
+}
+
+footer .bottom_content section {
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: Center;
+}
+
+.bottom_content a {
+  margin: 0 20px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: 0.5s;
+}
+
+.bottom_content a:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.copyright {
+  padding: 0.8em 0;
+  background-color: #1e1e1e;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+}
+
+@media (max-width: 820px) {
+  .top_header {
+    padding: 1rem;
+    display: block;
+  }
+
+  .top_header section {
+    margin: 40px 0;
+    align-items: left;
+    justify-content: left;
+  }
+  footer .bottom_content section {
+    padding: 1rem;
+    display: block;
+  }
+  footer .bottom_content section a {
+    padding: 1rem;
+    font-size: 12px;
+    margin: 0 5px;
+    display: inline-block;
+  }
+}
 
 .footer-global {
   display: grid;
@@ -1209,9 +1341,6 @@ a.nav-link-primary:hover {
 .project-details {
   width: 100%;
   padding: var(--padding-small);
-  background: var(
-    --color-gradient-project-details
-  ); /* TODO: Remove gradient background if you prefer a simpler design */
 }
 
 /* Previous/Next Arrow Styles */
@@ -1445,9 +1574,11 @@ to keep your styles reusable and consistent.
   }
 
   .h1-full-width,
-  .h2-full-width {
+  .h2-full-width,
+  .p-full-width {
     width: 70%;
     padding: var(--padding-small);
+    text-align: left;
   }
 
   /* ----------------------------- */
@@ -1494,10 +1625,8 @@ to keep your styles reusable and consistent.
   }
 
   .hero-headline-wrapper {
-    padding-top: var(--padding-jumbo);
-    padding-bottom: var(--padding-jumbo);
-    padding-left: var(--padding-ultra);
-    padding-right: var(--padding-ultra);
+    justify-content: space-between;
+    width: 100%;
   }
   .error-headline-wrapper {
     padding-top: var(--padding-small);
@@ -1671,7 +1800,7 @@ to keep your styles reusable and consistent.
   /* TODO: Add styles here for X-large devices. */
 
   .grid {
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
   }
 }
 
@@ -1681,7 +1810,7 @@ to keep your styles reusable and consistent.
   /* TODO: Add styles here for XX-large devices. */
 
   .grid {
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
   }
 }
 
