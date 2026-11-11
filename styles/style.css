@@ -689,7 +689,7 @@ a.nav-link-primary:hover {
   min-height: 80vh; /* Takes up most of the screen height */
   display: flex;
   flex-direction: column;
-  background: #0e0101;
+  background: #green;
 }
 .hero-header {
   min-height: 6rem; /* Space reserved for logo + nav */
@@ -736,7 +736,7 @@ a.nav-link-primary:hover {
 }
 
 .hero-icon {
-  font-size: 4rem;
+  font-size: 8rem;
 }
 
 .hero-footer {
@@ -1057,7 +1057,9 @@ a.nav-link-primary:hover {
   background-color: var(
     --color-overlay-primary
   ); /* Background color of the overlay */
-  transition: opacity var(--duration-normal), visibility var(--duration-normal);
+  transition:
+    opacity var(--duration-normal),
+    visibility var(--duration-normal);
   /* custom drop shadow by leo */
 
   box-shadow: -6px 29px 63px -23px rgba(0, 0, 0, 1) inset;
@@ -1641,7 +1643,7 @@ footer .bottom_content section {
 .error-page-animation {
   width: 45rem;
   height: 25rem;
-  :25rem ;
+  :25rem;
 }
 
 :root {
@@ -1663,7 +1665,8 @@ footer .bottom_content section {
 
 .fire::before {
   content: "";
-  background-image: var(--glitter), var(--glitter),
+  background-image:
+    var(--glitter), var(--glitter),
     linear-gradient(
       0deg,
       white 0px,
@@ -1672,9 +1675,16 @@ footer .bottom_content section {
       transparent 70%
     ),
     radial-gradient(ellipse at bottom, transparent 30%, black 60%);
-  background-size: 350px 500px, 400px 650px, 100% 100%, 100% 100%;
+  background-size:
+    350px 500px,
+    400px 650px,
+    100% 100%,
+    100% 100%;
   background-blend-mode: hard-light, color-dodge, multiply;
-  background-position: 0px 0px, 0px 0px, var(--gradientPos);
+  background-position:
+    0px 0px,
+    0px 0px,
+    var(--gradientPos);
   background-repeat: repeat, repeat, repeat, no-repeat;
   mix-blend-mode: color-dodge;
   filter: brightness(3.7) blur(7px) contrast(6);
@@ -1684,10 +1694,18 @@ footer .bottom_content section {
 
 @keyframes fire {
   0% {
-    background-position: center 0px, center 0px, 50% 100%, center center;
+    background-position:
+      center 0px,
+      center 0px,
+      50% 100%,
+      center center;
   }
   100% {
-    background-position: center -500px, center -650px, 50% 100%, center center;
+    background-position:
+      center -500px,
+      center -650px,
+      50% 100%,
+      center center;
   }
 }
 
