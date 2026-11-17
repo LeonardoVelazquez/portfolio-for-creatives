@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>
@@ -185,49 +185,53 @@
 
       window.addEventListener("scroll", myScrollFunc);
     </script>
-    <footer>
-      <div class="top_header">
-        <section>
-          <span><i class="fa fa-map-marker"></i></span>
-          <span>6456 E Cordova, Vancouver BC B5K2D3</span>
-        </section>
-        <section>
-          <span><i class="fa fa-phone"></i></span>
-          <span>(1) 778 318 3554</span>
-        </section>
-        <section>
-          <span><i class="fa fa-envelope"></i></span>
-          <span>leonardovelazquezcha@capu.com</span>
-        </section>
-      </div>
-      <span class="border-shape"></span>
-      <div class="bottom_content">
-        <section>
-          <a href="https://www.facebook.com/">
-            <i class="fa-brands fa-facebook"></i
-          ></a>
-          <a href="https://www.instagram.com/leo_velarte_/">
-            <i class="fa-brands fa-instagram"></i
-          ></a>
-          <a href="https://www.instagram.com/leo_velarte_/">
-            <i class="fa-brands fa-twitter"></i
-          ></a>
-          <a href="https://web.telegram.org/k/">
-            <i class="fa-brands fa-telegram"></i
-          ></a>
-        </section>
-        <section>
-          <a href="#">Home</a>
-          <a href="#">About us</a>
-          <a href="#">Order</a>
-          <a href="#">Retail</a>
-          <a href="#">Member</a>
-          <a href="#">Contact Us</a>
-        </section>
-      </div>
-      <div class="copyright">
-        Copyright © 2025 Leonardo Velazquez - All rights reserved
-      </div>
-    </footer>
+    <ul class="footer-global">
+      <li class="footer-tagline">
+        <h2>Let's Connect!</h2>
+        <p>
+          Feel free to reach out with any questions, collaborations, or just to
+          chat about design.
+        </p>
+      </li>
+      <li class="footer-highlights">
+        <h2>Awards & Recognition</h2>
+        <ul class="footer-awards-list">
+          <li class="footer-item">
+            <a href="#">Dean’s List – Year or Term</a>
+          </li>
+          <li class="footer-item">
+            <a href="#">Your Award – Name of Student Award and Year</a>
+          </li>
+          <li class="footer-item">
+            <a href="#">Honourable Mention – Project or Competition Name</a>
+          </li>
+          <li class="footer-item">
+            <a href="#">Other Recognition or Accolade</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="footer-contact-social">
+        <h2>Contact & Social</h2>
+        <ul class="footer-socials-list">
+          <li class="footer-item"><a href="#">Insta</a></li>
+          <li class="footer-item"><a href="#">LinkedIn</a></li>
+          <li class="footer-item"><a href="#">Behance</a></li>
+        </ul>
+      </li>
+
+      <li class="footer-full-width">
+        <p><a href="#top">Smooth scroll to the top</a></p>
+        <p class="footer-fineprint">
+          &copy; <span id="copyright-years">2020-</span>. Hand crafted with
+          <span class="heart">❤</span>
+          by James Neufeld.
+        </p>
+        <script>
+          document.getElementById("copyright-years").textContent +=
+            new Date().getFullYear();
+        </script>
+      </li>
+    </ul>
   </body>
 </html>

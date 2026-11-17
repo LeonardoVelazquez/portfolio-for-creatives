@@ -107,9 +107,9 @@
   --color-highlight: lemonchiffon;
   --color-fallback: #d60606; /* Fallback color for glitch effect on 404 page */
   /* Backgrounds */
-  --color-bg: #fdfdfd;
-  --color-bg-about: #f5f5f5;
-  --color-bg-footer: #f5f5f5;
+  --color-bg: #f9f2e9;
+  --color-bg-about: #f9f2e9;
+  --color-bg-footer: #f9f2e9;
   --color-bg-holding-page: rgba(82, 0, 255, 0.6);
   /* Headings */
   --h1-color: #000000;
@@ -119,13 +119,14 @@
   --h5-color: #000000;
   --h6-color: #000000;
   /* Special Text Colours */
-  --color-text-holding-title: #ebedf0;
-  --color-text-project-category: #ffffff;
+  --color-text-holding-title: #f9f2e9;
+  --color-text-project-category: #d60606;
   --color-text-project-description: #222;
   --color-text-project3-description: #d60606;
   --color-text-project-sidebar: #222;
   --color-text-project-title: #d60606;
-  --color-text-work-grid-title: #ffffff;
+  --color-text-work-grid-title: #d60606;
+
   /* Link States */
   --color-link: #d60606;
   --color-link-hover: #111;
@@ -445,20 +446,21 @@ svg {
 
 /* Heading Styles (h1 - h6) */
 
+h2 {
+  font-size: 2.2rem;
+  font-family: var(--font-family-heading);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--h1-color);
+}
+
 h1 {
   font-size: 2.2rem;
   font-family: var(--font-family-heading);
   line-height: 1.2;
   margin-bottom: 1rem;
   color: var(--h1-color);
-}
-
-h2 {
-  font-size: 2rem;
-  font-family: var(--font-family-heading);
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  color: var(--h2-color);
 }
 
 h3 {
@@ -711,18 +713,42 @@ a.nav-link-primary:hover {
   padding: var(--padding-tiny);
 }
 
+/* Navigation link hover animation */
+.nav-link-primary {
+  display: inline-block;
+  font-weight: 400;
+  text-decoration: none;
+  transition:
+    font-weight 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Only activates when hovering */
+.nav-link-primary:hover {
+  font-weight: 800;
+  transform: translateY(-3px);
+}
+
 .nav-branding-logo {
   width: 3rem;
   /* TODO: Adjust the width of the logo on mobile devices here */
 }
+
+/* Logo animation */
 .logo {
   fill: #d60606;
-  transition: 200ms;
-  transition-timing-function: ease-in-out;
+  transform-origin: center;
+  transition:
+    transform 0.4s ease-in-out,
+    fill 0.3s ease;
 }
+
+/* Logo hover effect */
 .logo:hover {
   fill: goldenrod;
+  transform: rotate(12deg);
 }
+
 .hero-headline-wrapper {
   width: 100%;
   display: flex;
@@ -751,6 +777,136 @@ a.nav-link-primary:hover {
   flex-direction: row;
   justify-content: space-between;
   padding: var(--padding-small);
+}
+
+/* Name - normal appearance */
+.intro-name {
+  font-weight: 800;
+  transition: text-shadow 0.5s ease;
+  color: #d60606;
+}
+
+/* Name - subtle red glow in night mode */
+html[data-theme="night"] .intro-name {
+  text-shadow:
+    0 0 15px rgba(214, 6, 6, 0.45),
+    0 0 35px rgba(214, 6, 6, 0.2);
+}
+/* ---------------------------------------
+   DAY & NIGHT COLOUR THEMES
+--------------------------------------- */
+
+/* Day mode (default) */
+:root {
+  --theme-bg: #f9f2e9;
+  --theme-text: #1b1512;
+  --theme-card: #f9f2e9;
+}
+
+/* Night mode */
+html[data-theme="night"] {
+  --theme-bg: #100b08;
+  --theme-text: #f9f2e9;
+  --theme-card: #1d1713;
+  --h1-color: #f9f2e9;
+}
+
+/* Smooth colour transitions */
+body {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+/* Change hero background */
+.hero {
+  background-color: var(--theme-bg);
+  transition: background-color 0.4s ease;
+}
+
+/* Introduction text */
+.hero-headline-wrapper h1 {
+  color: var(--theme-text);
+  transition: color 0.4s ease;
+}
+
+/* Project card backgrounds */
+.project-container {
+  background-color: var(--theme-card);
+  transition: background-color 0.4s ease;
+}
+
+/* ---------------------------------------
+   DAY & NIGHT TOGGLE
+--------------------------------------- */
+
+.theme-toggle {
+  position: relative;
+  display: block;
+  width: 112px;
+  height: 36px;
+  border: 2px solid #d60606;
+  border-radius: 100px;
+  background: transparent;
+  color: var(--theme-text);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Day / Night text */
+.theme-toggle-label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+}
+
+/* Sliding red circle */
+.theme-toggle-knob {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  width: 22px;
+  height: 22px;
+  background: #d60606;
+  border-radius: 50%;
+  transform: translate(78px, -50%);
+  transition: transform 0.35s ease-in-out;
+}
+
+/* Night mode: circle slides left */
+html[data-theme="night"] .theme-toggle-knob {
+  transform: translate(0, -50%);
+}
+
+/* Night mode: text moves right */
+html[data-theme="night"] .theme-toggle-label {
+  left: auto;
+  right: 12px;
+}
+
+/* Introduction text + theme switch */
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+}
+
+/* Position switch underneath text, to the right */
+.intro-content .theme-toggle {
+  align-self: flex-end;
+  margin-top: 24px;
+}
+
+/* Match website typography */
+.theme-toggle {
+  font-family: var(--font-family-heading);
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 /* Line Test */
@@ -1024,7 +1180,32 @@ a.nav-link-primary:hover {
 .overlay-container {
   width: 100%;
   height: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
   position: relative; /* Needed to position the overlay */
+}
+
+/* Keep rounded corners on the entire card */
+.work-page-grid-item {
+  overflow: hidden;
+}
+
+/* Image container with rounded corners */
+.work-page-grid-item figure {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Smooth zoom effect */
+.work-page-grid-item figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.6s ease;
+}
+
+/* Zoom on hover */
+.work-page-grid-item:hover figure img {
+  transform: scale(1.05);
 }
 
 /* Masonry Overlay Text */
@@ -1033,9 +1214,94 @@ a.nav-link-primary:hover {
 }
 
 /* Project container for background and padding */
+
+/* Project container */
 .project-container {
-  background: var(--color-accent-primary); /* Set project background color */
-  padding: var(--padding-medium);
+  background: #f9f2e9;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Image container */
+.work-page-grid-item figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+*
+  ----------------------------------
+  PROJECT
+  CARDS
+  -
+  DAY
+  MODE
+  ----------------------------------
+  */
+  .work-page-grid-item.project-container {
+  background-color: #f9f2e9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition:
+    background-color 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+/* Text area underneath project images */
+.work-page-grid-item .project-details-overlay:not(.overlay) {
+  background-color: #f9f2e9;
+  transition: background-color 0.5s ease;
+}
+
+/* ----------------------------------
+   PROJECT CARDS - NIGHT MODE
+---------------------------------- */
+
+html[data-theme="night"] .work-page-grid-item.project-container {
+  background-color: #211916;
+
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.45),
+    0 4px 10px rgb(214, 6, 6),
+    0 0 35px rgba(214, 6, 6, 0.2);
+
+  transition:
+    background-color 0.5s ease,
+    box-shadow 0.4s ease;
+}
+
+/* Night mode: enhanced glow on hover */
+html[data-theme="night"] .work-page-grid-item.project-container:hover {
+  box-shadow:
+    0 14px 25px rgba(0, 0, 0, 0.5),
+    0 15px 45px rgba(214, 6, 6, 0.55),
+    0 0 50px rgba(214, 6, 6, 0.3);
+}
+
+/* Dark text area beneath image */
+html[data-theme="night"]
+  .work-page-grid-item
+  .project-details-overlay:not(.overlay) {
+  background-color: #211916;
+}
+
+/* Image zoom effect */
+.work-page-grid-item figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  transition: transform 0.6s ease;
+}
+
+/* Zoom on hover */
+.work-page-grid-item:hover figure img {
+  transform: scale(1.05);
+}
+
+/* Text underneath the image */
+.work-page-grid-item .project-details-overlay:not(.overlay) {
+  padding: 28px 20px;
+  text-align: center;
 }
 
 /* Overlay (appears on hover) */
@@ -1060,6 +1326,7 @@ a.nav-link-primary:hover {
   transition:
     opacity var(--duration-normal),
     visibility var(--duration-normal);
+
   /* custom drop shadow by leo */
 
   box-shadow: -6px 29px 63px -23px rgba(0, 0, 0, 1) inset;
@@ -1543,6 +1810,57 @@ footer .bottom_content section {
   font-size: 1rem;
   line-height: 1.2; /* Consistent line height for project items to improve spacing */
   margin-bottom: 0.25rem;
+}
+
+/* ==========================================
+   FOOTER - DAY & NIGHT MODE
+========================================== */
+
+/* DAY MODE */
+.footer-global {
+  background-color: #f9f2e9;
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
+}
+
+/* NIGHT MODE - Background */
+html[data-theme="night"] .footer-global {
+  background-color: #100b08;
+  border-top: 1px solid rgba(214, 6, 6, 0.25);
+}
+
+/* NIGHT MODE - Headings */
+html[data-theme="night"] .footer-global h2 {
+  color: #f9f2e9;
+  transition: color 0.5s ease;
+}
+
+/* NIGHT MODE - Paragraph text */
+html[data-theme="night"] .footer-global p {
+  color: #f9f2e9;
+  transition: color 0.5s ease;
+}
+
+/* NIGHT MODE - Links */
+html[data-theme="night"] .footer-global a {
+  color: #ff5750;
+  transition: color 0.3s ease;
+}
+
+/* NIGHT MODE - Links on hover */
+html[data-theme="night"] .footer-global a:hover {
+  color: #f9f2e9;
+}
+
+/* NIGHT MODE - Copyright */
+html[data-theme="night"] .footer-fineprint {
+  color: #bdb0aa;
+}
+
+/* Keep heart red in both modes */
+.footer-global .heart {
+  color: #d60606;
 }
 
 /*
