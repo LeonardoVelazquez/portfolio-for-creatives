@@ -1,0 +1,155 @@
+/* LEO LOGO INTRO v3 — smoother nose-to-chin single-stroke reveal.
+   The exact original logo is preserved inside SVG masks. */
+
+html.leo-intro-active,
+html.leo-intro-active body { overflow: hidden !important; }
+
+.leo-intro {
+  --leo-intro-bg: #f4f0e8;
+  --leo-intro-ink: #191919;
+  --leo-intro-accent: #d60606;
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  display: none;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--leo-intro-bg);
+  color: var(--leo-intro-ink);
+  clip-path: inset(0 0 0 0);
+  -webkit-clip-path: inset(0 0 0 0);
+}
+html.leo-intro-active .leo-intro { display: grid; }
+.leo-intro *, .leo-intro *::before, .leo-intro *::after { box-sizing: border-box; }
+.leo-intro__scene {
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: min(53vw, 290px);
+  padding-bottom: 42px;
+  will-change: transform, opacity;
+}
+.leo-intro__svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+/* WHITE MASKS: Ink stays true to the source SVG, without redrawing the logo. */
+.leo-trace,
+.leo-trace--eye {
+  fill: none;
+  stroke: white;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+.leo-trace--contour { stroke-width: 38; }
+.leo-trace--snout   { stroke-width: 34; visibility: hidden; }
+.leo-trace--eye {
+  stroke-width: 23;
+  visibility: hidden;
+  transform-origin: 69.56px 90.49px;
+  transform: rotate(-115deg);
+}
+.leo-intro__eye {
+  transform-box: view-box;
+  transform-origin: 69.56px 90.49px;
+  will-change: transform;
+}
+.leo-intro__caption {
+  position: absolute;
+  top: calc(100% - 18px);
+  left: 50%;
+  width: max-content;
+  max-width: 96vw;
+  transform: translate(-50%, 8px);
+  font: 700 10px/1.4 system-ui, -apple-system, sans-serif;
+  letter-spacing: .2em;
+  text-align: center;
+  opacity: 0;
+}
+.leo-intro__caption span { color: var(--leo-intro-accent); padding: 0 .3em; }
+.leo-intro__skip {
+  position: absolute;
+  right: clamp(20px, 3vw, 56px);
+  bottom: max(26px, env(safe-area-inset-bottom));
+  z-index: 2;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  padding: 12px 1px 8px;
+  background: transparent;
+  color: inherit;
+  font: 700 11px/1.3 system-ui, -apple-system, sans-serif;
+  letter-spacing: .11em;
+  cursor: pointer;
+  opacity: .7;
+  transition: opacity 250ms ease;
+}
+.leo-intro__skip:hover { opacity: 1; }
+.leo-intro__skip:focus-visible { outline: 2px solid var(--leo-intro-accent); outline-offset: 5px; }
+
+/* TIMELINE
+   0.00s  One uninterrupted trace starts at the nose tip
+   0.75s  Eye begins drawing as the top contour passes overhead
+   1.46s  Eye closes and opens in a soft, asymmetrical blink
+   2.35s  Muzzle follows the final contour
+   3.30s  Website is revealed with a slow eased curtain
+*/
+.leo-intro.is-playing .leo-trace--contour {
+  animation: leo-draw 3020ms cubic-bezier(.42, .02, .51, .98) both;
+}
+.leo-intro.is-playing .leo-trace--eye {
+  animation:
+    leo-draw 700ms cubic-bezier(.34, .05, .55, .98) 750ms both,
+    leo-appear 1ms steps(1, end) 750ms forwards;
+}
+.leo-intro.is-playing .leo-intro__eye {
+  animation: leo-blink 570ms linear 1460ms both;
+}
+.leo-intro.is-playing .leo-trace--snout {
+  animation:
+    leo-draw 770ms cubic-bezier(.34, .04, .57, .96) 2330ms both,
+    leo-appear 1ms steps(1, end) 2330ms forwards;
+}
+.leo-intro.is-playing .leo-intro__caption {
+  animation: leo-caption 520ms cubic-bezier(.22, 1, .36, 1) 2850ms both;
+}
+.leo-intro.is-exiting {
+  animation: leo-curtain 940ms cubic-bezier(.65, 0, .22, 1) forwards;
+}
+.leo-intro.is-exiting .leo-intro__scene {
+  animation: leo-gently-away 890ms cubic-bezier(.25, 0, .45, 1) both;
+}
+
+@keyframes leo-draw {
+  from { stroke-dashoffset: 100; }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes leo-appear { from, to { visibility: visible; } }
+
+/* A swift natural close, tiny resting beat, then a slightly slower open. */
+@keyframes leo-blink {
+  0%   { transform: scaleY(1); }
+  15%  { transform: scaleY(1); animation-timing-function: cubic-bezier(.64, 0, 1, .58); }
+  34%  { transform: scaleY(.055); }
+  46%  { transform: scaleY(.055); animation-timing-function: cubic-bezier(.12, .65, .26, 1); }
+  83%  { transform: scaleY(1.025); }
+  100% { transform: scaleY(1); }
+}
+@keyframes leo-caption {
+  to { opacity: .8; transform: translate(-50%, 0); }
+}
+@keyframes leo-curtain {
+  from { clip-path: inset(0 0 0 0); -webkit-clip-path: inset(0 0 0 0); }
+  to   { clip-path: inset(0 0 100% 0); -webkit-clip-path: inset(0 0 100% 0); }
+}
+@keyframes leo-gently-away {
+  from { transform: translateY(0) scale(1); opacity: 1; }
+  to { transform: translateY(-10px) scale(1.025); opacity: .4; }
+}
+@media (max-width: 600px) {
+  .leo-intro__scene { width: min(62vw, 245px); }
+  .leo-intro__caption { font-size: 8px; letter-spacing: .12em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .leo-intro, .leo-intro * { animation: none !important; transition: none !important; }
+}
