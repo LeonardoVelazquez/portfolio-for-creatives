@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fruition Movement | Leonardo Velazquez</title>
     <meta
       name="description"
-      content="For queer Vancouverites who feel out of place at the gym, even walking through the door can be a hurdle. Our team imagined a fitness space where movement could feel social, playful and welcoming from that first visit."
+      content="Website, mural and merchandise design for Fruition Movement, an award-winning fitness concept for queer and gender-diverse communities in Vancouver."
     />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="assets/branding-images/logo.png" />
     <meta
       property="og:image"
       content="https://leovelazquez.com/assets/branding-images/logo.png"
     />
+    <link rel="icon" type="image/png" href="assets/branding-images/logo.png" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
@@ -24,14 +24,131 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script src="./js/portfolio-theme.js"></script>
     <link rel="stylesheet" href="./styles/style.css" />
+
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("portfolio-theme") === "night" ? "night" : "day";
+      } catch {
+        document.documentElement.dataset.theme = "day";
+      }
+    </script>
+
+    <style>
+      .fruition-case .project-info .theme-toggle {
+        margin: 1rem 0;
+      }
+
+      .fruition-case .project-details {
+        min-width: 0;
+      }
+
+      .fruition-case .case-context {
+        margin-block: clamp(2rem, 4vw, 4rem);
+      }
+
+      .fruition-case .case-context h2 {
+        margin-bottom: 0.65rem;
+      }
+
+      .fruition-case .case-context p {
+        max-width: 65ch;
+        color: var(--theme-text);
+        line-height: 1.5;
+      }
+
+      .fruition-case .case-figure {
+        margin: 1.5rem 0;
+      }
+      .fruition-case .project-details > .case-figure:first-child {
+        margin-top: 0;
+      }
+
+      .fruition-case .case-figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: var(--radius-sm);
+      }
+
+      .fruition-case figcaption {
+        margin-top: 0.5rem;
+        color: var(--theme-text);
+        font-size: 0.95rem;
+        line-height: 1.35;
+      }
+
+      .fruition-case .case-context a {
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+      }
+
+      .fruition-case a:focus-visible,
+      .fruition-case button:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 4px;
+      }
+
+      .fruition-team {
+        padding-block: 1.25rem;
+        border-block: 1px solid currentColor;
+        color: var(--theme-text);
+      }
+
+      .fruition-team dl {
+        display: grid;
+        gap: 1rem 1.5rem;
+        margin: 0;
+      }
+
+      .fruition-team dt {
+        font-weight: 700;
+      }
+      .fruition-team dd {
+        margin: 0.25rem 0 0;
+        line-height: 1.4;
+      }
+      .fruition-awards p + p {
+        margin-top: 1rem;
+      }
+
+      html[data-theme="night"] body {
+        --color-bg-footer: var(--theme-bg);
+        --color-text-primary: var(--theme-text);
+        --color-text-secondary: var(--theme-text);
+        --color-text-project-description: var(--theme-text);
+        --color-text-project-sidebar: var(--theme-text);
+        --color-text-project-title: #ff8378;
+        --color-nav-link: #ff8378;
+        --color-nav-arrow: #ff8378;
+        --color-link: #ff8378;
+        --color-link-visited: #ff8378;
+      }
+
+      html[data-theme="night"] .fruition-case h2,
+      html[data-theme="night"] .footer-global :is(h2, p) {
+        color: var(--theme-text);
+      }
+
+      @media (min-width: 48rem) {
+        .fruition-team dl {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-height: 760px) {
+        .fruition-case .project-aside {
+          position: static;
+          height: auto;
+        }
+      }
+    </style>
   </head>
 
   <body id="top" class="project-1 portfolio-project">
     <header class="hero-header">
       <ul class="nav-branding">
-        <!-- Logo (standalone LI) -->
         <li class="nav-branding-logo">
           <a href="index.html" aria-label="Leonardo Velazquez, home">
             <svg
@@ -50,6 +167,7 @@
             </svg>
           </a>
         </li>
+
         <li class="nav-branding-item">
           <ul class="nav-branding-group">
             <li class="nav-branding-item">
@@ -58,7 +176,6 @@
             <li class="nav-branding-item">
               <a href="play.html" class="nav-link-primary">Play</a>
             </li>
-
             <li class="nav-branding-item">
               <a href="about.html" class="nav-link-primary">About</a>
             </li>
@@ -69,10 +186,28 @@
         </li>
       </ul>
     </header>
-    <div class="project-wrapper">
-      <aside class="project-aside">
+
+    <div class="project-wrapper fruition-case">
+      <aside class="project-aside" aria-labelledby="fruition-title">
         <div class="project-info">
-          <h1 class="project-title">Fruition Movement</h1>
+          <h1 id="fruition-title" class="project-title">Fruition Movement</h1>
+
+          <p class="project-description">
+            For queer Vancouverites who feel out of place at the gym, even
+            walking through the door can be a hurdle. Our team imagined a
+            fitness space where movement could feel social, playful and
+            welcoming from that first visit.
+          </p>
+
+          <h2>My contribution</h2>
+          <p class="project-description">
+            Website design, mural illustration and merchandise. I also developed
+            the brand guide with the team.
+          </p>
+
+          <h2>Project duration</h2>
+          <p class="project-description">14 weeks · Digital Thinking</p>
+
           <button
             id="themeToggle"
             class="theme-toggle"
@@ -81,22 +216,10 @@
             aria-pressed="false"
           >
             <span class="theme-toggle-label">Day</span>
-            <span class="theme-toggle-knob"></span>
+            <span class="theme-toggle-knob" aria-hidden="true"></span>
           </button>
-          <p class="project-description">
-            For queer Vancouverites who feel out of place at the gym, even
-            walking through the door can be a hurdle. Our team imagined a
-            fitness space where movement could feel social, playful and
-            welcoming from that first visit.
-          </p>
-          <h2>Team &amp; approach</h2>
-          <p class="project-description">
-            I developed the brand guide with Kayla Do, Emilyn Lai and Cameron
-            Skorulski. The website, environmental graphics and equipment bring
-            the shared identity into the proposed physical space. Project
-            duration: 14 weeks.
-          </p>
         </div>
+
         <ul class="project-navigation">
           <li class="arrow">
             <a
@@ -116,90 +239,202 @@
           </li>
         </ul>
       </aside>
+
       <main class="project-details">
-        <figure class="project-image">
+        <!-- Image 1: Homepage hero -->
+        <figure class="case-figure">
           <img
             src="assets/project-overviews/placeholder.jpg"
             width="1920"
             height="1080"
-            class="rounded-small"
-            loading="lazy"
-            alt="placeholder"
+            fetchpriority="high"
+            alt=""
           />
+          <figcaption>Fruition Movement · Website homepage</figcaption>
         </figure>
+
         <section class="case-context">
           <h2>Designing the first visit</h2>
           <p>
-            Fruition began with a question about queer representation in
-            Vancouver fitness culture. Before someone can join a class or use a
-            piece of equipment, they have to decide whether the space feels like
-            somewhere they belong. Our 14-week Digital Thinking project treated
-            that first impression as part of the design brief.
+            Our team interviewed 14 people about fitness and belonging. We used
+            those conversations to shape a gym concept for queer and
+            gender-diverse people in Vancouver, especially beginners. For my
+            part of the project, I focused on a moment that happens before
+            anyone touches a piece of equipment. Someone opens the website,
+            looks around and decides whether they can picture themselves there.
           </p>
         </section>
 
-        <figure class="project-image">
-          <img
-            src="assets/project-overviews/placeholder.jpg"
-            width="1920"
-            height="1080"
-            class="rounded-small"
-            loading="lazy"
-            alt="placeholder"
-          />
-        </figure>
+        <section
+          class="case-context fruition-team"
+          aria-labelledby="team-heading"
+        >
+          <h2 id="team-heading">Project team</h2>
+          <dl>
+            <div>
+              <dt>
+                <a href="https://emilynlai.online/fruition-movement.html"
+                  >Emilyn Lai ↗</a
+                >
+              </dt>
+              <dd>Brand direction, logo design and visual system</dd>
+            </div>
+            <div>
+              <dt>
+                <a href="https://kaylado.online/index.html">Kayla Do ↗</a>
+              </dt>
+              <dd>Branding, interior models, merchandise and motion</dd>
+            </div>
+            <div>
+              <dt>
+                <a href="https://cameronskorulski.com/">Cameron Skorulski ↗</a>
+              </dt>
+              <dd>Illustration and gym exterior model</dd>
+            </div>
+            <div>
+              <dt>Paul Brokenshire</dt>
+              <dd>Instructor · IDEA School of Design</dd>
+            </div>
+          </dl>
+        </section>
+
         <section class="case-context">
           <h2>A website that lets you look around</h2>
           <p>
-            The homepage introduces the movement, the About page explains who
-            the space is for, and the Amenities pages give people something
-            concrete to picture before arriving. These pages answer three
-            different questions a prospective visitor might bring: who’s here,
-            what do they value, and what can I actually do there?
+            I designed three pages around questions a first-time visitor might
+            bring. The homepage introduces Fruition. About explains who the gym
+            is for and why we created it. Amenities shows what visitors can
+            actually do there, so they can explore the space at their own pace.
           </p>
+
+          <!-- Image 2: About page -->
+          <figure class="case-figure">
+            <img
+              src="assets/project-overviews/placeholder.jpg"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              alt=""
+            />
+            <figcaption>
+              About · The people and purpose behind Fruition
+            </figcaption>
+          </figure>
+
+          <!-- Image 3: Amenities page -->
+          <figure class="case-figure">
+            <img
+              src="assets/project-overviews/placeholder.jpg"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              alt=""
+            />
+            <figcaption>
+              Amenities · Exploring the gym before visiting
+            </figcaption>
+          </figure>
         </section>
-        <figure class="project-image">
-          <img
-            src="assets/project-overviews/placeholder.jpg"
-            width="1920"
-            height="1080"
-            class="rounded-small"
-            loading="lazy"
-            alt="placeholder"
-          />
-        </figure>
 
         <section class="case-context">
-          <h2>A shared identity in physical space</h2>
+          <h2>From a screen to a dumbbell</h2>
           <p>
-            I worked on the brand guide with Kayla Do, Emilyn Lai and Cameron
-            Skorulski. We tested how the system would read on objects that
-            people touch, including dumbbells and a bounce ball, as well as on
-            the gym exterior. The mural presentation brings the flat
-            illustration together with Cameron’s exterior model. Fruition
-            Movement received first place at the 2026 Salazar Awards.
+            We built the brand guide together. My equipment and merchandise
+            designs gave us a way to see how the identity worked on objects
+            people would hold or move. A condom wrapper had room for a small
+            mark. A dumbbell offered a narrow surface, while a bounce ball let
+            the graphics wrap around a curve.
+          </p>
+
+          <!-- Image 4: Brand guide -->
+          <figure class="case-figure">
+            <img
+              src="assets/project-overviews/placeholder.jpg"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              alt=""
+            />
+            <figcaption>Brand guide · Our shared visual system</figcaption>
+          </figure>
+
+          <!-- Image 5: Equipment and merchandise -->
+          <figure class="case-figure">
+            <img
+              src="assets/project-overviews/placeholder.jpg"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              alt=""
+            />
+            <figcaption>
+              Equipment and merchandise · Packaging, dumbbells and bounce ball
+            </figcaption>
+          </figure>
+        </section>
+
+        <section class="case-context">
+          <h2>Taking the mural outside</h2>
+          <p>
+            I drew the mural as a flat illustration. Placing it on Cameron’s
+            exterior model let us see the artwork from a visitor’s point of
+            view. From the sidewalk, the mural would be their first encounter
+            with Fruition, even before they reached the front door.
+          </p>
+
+          <!-- Image 6: Flat mural illustration -->
+          <figure class="case-figure">
+            <img
+              src="assets/project-overviews/placeholder.jpg"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              alt=""
+            />
+            <figcaption>Mural · My original flat illustration</figcaption>
+          </figure>
+
+          <!-- Image 7: Mural on Cameron's exterior model -->
+          <figure class="case-figure">
+            <img
+              src="assets/project-overviews/placeholder.jpg"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              alt=""
+            />
+            <figcaption>
+              Exterior application · My mural on Cameron Skorulski’s model
+            </figcaption>
+          </figure>
+        </section>
+
+        <section class="case-context fruition-awards">
+          <h2>Team recognition</h2>
+          <p>
+            <a
+              href="https://www.appliedartsmag.com/winners/student/fruition-movement-w460/?year=2026"
+            >
+              Applied Arts Student Awards 2026 ↗ </a
+            ><br />
+            Entire Design Program
+          </p>
+          <p>
+            <a
+              href="https://www.ideaschoolofdesign.com/stories/2026/9/how-were-proving-capu-is-canadas-top-design-and-illustration-school-in-2026"
+            >
+              DesCan Salazar Awards 2026 ↗ </a
+            ><br />
+            Branding winner
           </p>
         </section>
       </main>
     </div>
+
     <div id="myID" class="bottomMenu hide">
       <a href="project-day-won.html">Next Project</a>
     </div>
 
-    <script>
-      myID = document.getElementById("myID");
-
-      var myScrollFunc = function () {
-        var y = window.scrollY;
-        if (y >= 800) {
-          myID.className = "bottomMenu show";
-        } else {
-          myID.className = "bottomMenu hide";
-        }
-      };
-
-      window.addEventListener("scroll", myScrollFunc);
-    </script>
     <ul class="footer-global">
       <li class="footer-tagline">
         <h2>Let's Connect!</h2>
@@ -208,6 +443,7 @@
           chat about design.
         </p>
       </li>
+
       <li class="footer-highlights">
         <h2>Selected work</h2>
         <p><a href="project-lullaby.html">Lullaby</a></p>
@@ -215,7 +451,7 @@
       </li>
 
       <li class="footer-contact-social">
-        <h2>Contact & Social</h2>
+        <h2>Contact &amp; Social</h2>
         <ul class="footer-socials-list">
           <li class="footer-item">
             <a href="https://www.instagram.com/leo_velarte_/">Instagram</a>
@@ -228,11 +464,50 @@
         <p class="footer-fineprint">
           &copy; <span id="copyright-years"></span> Leonardo Velazquez.
         </p>
-        <script>
-          document.getElementById("copyright-years").textContent +=
-            new Date().getFullYear();
-        </script>
       </li>
     </ul>
+
+    <script>
+      const root = document.documentElement;
+      const toggle = document.getElementById("themeToggle");
+      const label = toggle.querySelector(".theme-toggle-label");
+
+      function displayTheme(theme) {
+        const night = theme === "night";
+        root.dataset.theme = theme;
+        label.textContent = night ? "Night" : "Day";
+        toggle.setAttribute("aria-pressed", String(night));
+        toggle.setAttribute(
+          "aria-label",
+          night ? "Switch to day mode" : "Switch to night mode",
+        );
+      }
+
+      displayTheme(root.dataset.theme);
+
+      toggle.addEventListener("click", () => {
+        const theme = root.dataset.theme === "night" ? "day" : "night";
+        displayTheme(theme);
+        try {
+          localStorage.setItem("portfolio-theme", theme);
+        } catch {
+          // The selected theme remains active when storage is unavailable.
+        }
+      });
+
+      const nextProject = document.getElementById("myID");
+
+      function updateNextProject() {
+        const visible = window.scrollY >= 800;
+        nextProject.classList.toggle("show", visible);
+        nextProject.classList.toggle("hide", !visible);
+      }
+
+      updateNextProject();
+      window.addEventListener("scroll", updateNextProject, { passive: true });
+
+      document.getElementById("copyright-years").textContent =
+        new Date().getFullYear();
+    </script>
   </body>
 </html>

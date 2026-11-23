@@ -153,5 +153,47 @@
         </script>
       </li>
     </ul>
+    <script>
+      const root = document.documentElement;
+      const toggle = document.getElementById("themeToggle");
+      const label = toggle.querySelector(".theme-toggle-label");
+
+      function displayTheme(theme) {
+        const night = theme === "night";
+        root.dataset.theme = theme;
+        label.textContent = night ? "Night" : "Day";
+        toggle.setAttribute("aria-pressed", String(night));
+        toggle.setAttribute(
+          "aria-label",
+          night ? "Switch to day mode" : "Switch to night mode",
+        );
+      }
+
+      displayTheme(root.dataset.theme);
+
+      toggle.addEventListener("click", () => {
+        const theme = root.dataset.theme === "night" ? "day" : "night";
+        displayTheme(theme);
+        try {
+          localStorage.setItem("portfolio-theme", theme);
+        } catch {
+          // The selected theme remains active when storage is unavailable.
+        }
+      });
+
+      const nextProject = document.getElementById("myID");
+
+      function updateNextProject() {
+        const visible = window.scrollY >= 800;
+        nextProject.classList.toggle("show", visible);
+        nextProject.classList.toggle("hide", !visible);
+      }
+
+      updateNextProject();
+      window.addEventListener("scroll", updateNextProject, { passive: true });
+
+      document.getElementById("copyright-years").textContent =
+        new Date().getFullYear();
+    </script>
   </body>
 </html>

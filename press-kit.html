@@ -1,48 +1,308 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>
-      Free Creative Portfolio Template: October 2025 Version | About Page
-    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Garfield Discoteque — Artist Press Kit | Leonardo Velazquez</title>
+
     <meta
       name="description"
-      content="When writing a meta description, keep it between 140 and 160 characters so Google can display your entire message. Don’t forget to include your keyword!"
+      content="Artist bio, live DJ sets, press photos and booking enquiries for Garfield Discoteque, a Mexican DJ and Therapy Sound resident based in Vancouver."
     />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="images/svg+xml"
-      href="assets/branding-images/logo.png"
+    <meta
+      property="og:image"
+      content="https://leovelazquez.com/assets/branding-images/logo.png"
     />
+
     <link rel="icon" type="image/png" href="assets/branding-images/logo.png" />
-    <meta property="og:image" content="screenshot.jpg" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <link rel="stylesheet" href="./styles/style.css" />
+
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("portfolio-theme") === "night" ? "night" : "day";
+      } catch {
+        document.documentElement.dataset.theme = "day";
+      }
+    </script>
+
+    <style>
+      .artist-kit {
+        --artist-accent: var(--color-accent-primary, #d60606);
+        box-sizing: border-box;
+        width: min(100%, 100rem);
+        margin-inline: auto;
+        padding: clamp(1rem, 3vw, 3rem);
+        color: var(--theme-text);
+      }
+
+      .artist-kit h1,
+      .artist-kit h2,
+      .artist-kit h3 {
+        font-family: var(--font-family-heading);
+        color: inherit;
+      }
+
+      .artist-kit h1 {
+        margin: 0.16em 0 0.22em;
+        color: var(--artist-accent);
+        font-size: clamp(4rem, 10vw, 10rem);
+        font-weight: 750;
+        letter-spacing: -0.045em;
+        line-height: 0.86;
+      }
+
+      .artist-kit h2 {
+        margin: 0;
+        font-size: clamp(2.3rem, 4.5vw, 4.5rem);
+        line-height: 1;
+      }
+
+      .artist-kit h3 {
+        margin: 0.35rem 0 0.85rem;
+        font-size: clamp(2rem, 3vw, 3.25rem);
+        line-height: 1.05;
+      }
+
+      .artist-kit p,
+      .artist-kit dd {
+        max-width: 62ch;
+        color: inherit;
+        line-height: 1.5;
+      }
+
+      .artist-kit p + p {
+        margin-top: 1rem;
+      }
+
+      .artist-kit a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+      }
+
+      .artist-kit a:hover {
+        color: var(--artist-accent);
+      }
+
+      .artist-kit :is(a, button, [role="tabpanel"]):focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 4px;
+      }
+
+      .artist-bill,
+      .artist-section,
+      .artist-gallery {
+        display: grid;
+        gap: clamp(1.25rem, 3vw, 3rem);
+      }
+
+      .artist-bill {
+        align-items: center;
+        padding-bottom: clamp(2rem, 4vw, 4rem);
+      }
+
+      .artist-edition {
+        padding-block: 0.6rem;
+        border-block: 1px solid currentColor;
+        font-size: 0.95rem;
+      }
+
+      .artist-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem 1.25rem;
+        margin-block: 1.25rem;
+      }
+
+      .artist-bill .theme-toggle {
+        margin: 1.25rem 0 0;
+      }
+
+      .artist-photo {
+        margin: 0;
+      }
+
+      .artist-photo img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: var(--radius-sm);
+      }
+
+      .artist-photo figcaption {
+        margin-top: 0.55rem;
+        font-size: 0.95rem;
+      }
+
+      .artist-tabs {
+        display: flex;
+        gap: 0.5rem;
+        padding-bottom: 0.85rem;
+        border-bottom: 1px solid currentColor;
+      }
+
+      .artist-tabs a {
+        padding: 0.5rem 1.1rem;
+        border: 1px solid currentColor;
+        border-radius: 999px;
+        font-family: var(--font-family-heading);
+        font-size: 1.3rem;
+        font-weight: 650;
+        line-height: 1;
+        text-decoration: none;
+      }
+
+      .artist-tabs a[aria-selected="true"] {
+        border-color: var(--theme-text);
+        background: var(--theme-text);
+        color: var(--theme-bg);
+      }
+
+      .artist-kit [hidden] {
+        display: none !important;
+      }
+
+      .artist-section,
+      .artist-photos,
+      .artist-video-section {
+        padding-block: clamp(2rem, 4vw, 4rem);
+      }
+
+      .artist-section + .artist-section,
+      .artist-photos {
+        border-top: 1px solid currentColor;
+      }
+
+      .artist-gallery {
+        margin-block: 1.5rem;
+      }
+      .artist-appearances {
+        margin: 0;
+      }
+
+      .artist-appearances > div {
+        padding-block: 0.8rem;
+        border-bottom: 1px solid currentColor;
+      }
+
+      .artist-appearances > div:first-child {
+        padding-top: 0;
+      }
+      .artist-appearances dt {
+        font-weight: 700;
+      }
+      .artist-appearances dd {
+        margin: 0.2rem 0 0;
+      }
+
+      .artist-event-link {
+        display: inline-block;
+        margin-top: 1rem;
+      }
+
+      .artist-video-heading {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.75rem;
+      }
+
+      .artist-video-grid {
+        display: grid;
+        gap: 2rem 1.5rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .artist-video-grid a {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .artist-video-grid img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-radius: var(--radius-sm);
+        background: var(--theme-card);
+      }
+
+      .artist-video-grid h3 {
+        margin: 0.7rem 0 0.2rem;
+        font-size: clamp(1.7rem, 3vw, 2.55rem);
+      }
+
+      .artist-video-grid p {
+        margin: 0;
+      }
+
+      .artist-video-grid a:hover h3 {
+        color: var(--artist-accent);
+        text-decoration: underline;
+        text-underline-offset: 0.12em;
+      }
+
+      html[data-theme="night"] body {
+        --color-bg-footer: var(--theme-bg);
+        --color-text-primary: var(--theme-text);
+        --color-text-secondary: var(--theme-text);
+        --color-nav-link: #ff8378;
+        --color-link: #ff8378;
+        --color-link-visited: #ff8378;
+      }
+
+      html[data-theme="night"] .artist-kit {
+        --artist-accent: #ff8378;
+      }
+
+      html[data-theme="night"] .footer-global :is(h2, p) {
+        color: var(--theme-text);
+      }
+
+      @media (min-width: 48rem) {
+        .artist-video-grid,
+        .artist-gallery {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (min-width: 52rem) {
+        .artist-bill {
+          grid-template-columns: 1fr 1.15fr;
+        }
+        .artist-section {
+          grid-template-columns: minmax(14rem, 0.8fr) 1.2fr;
+        }
+      }
+    </style>
   </head>
 
-  <body class="about-page">
+  <body id="top" class="project-1 portfolio-project">
     <header class="hero-header">
       <ul class="nav-branding">
-        <!-- Logo (standalone LI) -->
         <li class="nav-branding-logo">
-          <a href="index.html">
+          <a href="index.html" aria-label="Leonardo Velazquez, home">
             <svg
               id="Layer_1"
               data-name="Layer 1"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 242.7 280.15"
               class="logo"
+              aria-hidden="true"
             >
               <path
                 d="M236.92,110.63c-10.87-41.16-36.57-74.72-72.36-94.49C126.88-4.7,85.03-5.39,49.74,14.27,20.48,30.56,1.43,58.65.01,87.52c-.31,5.92,4.25,10.98,10.21,11.26.17,0,.36.03.53.03,5.7,0,10.46-4.48,10.73-10.23,1.06-21.52,15.91-42.8,38.74-55.53,28.64-15.96,62.88-15.27,93.94,1.89,39.24,21.69,55.37,56.12,61.99,81.17,8.4,31.84,6.31,66.38-5.76,94.69-7.79,18.27-19.08,32.15-32.62,40.16-14.49,8.54-30.98,10.01-49.03,4.42-14.52-4.51-23.22-13.85-26.61-28.59-.64-2.78-1.03-5.51-1.22-8.06,4.12-.14,9.32-.47,14.79-1.17,18.77-2.36,30.95-7.56,37.18-15.88,4.56-6.03,5.73-13.63,3.28-21.33-6.15-19.36-21.64-30.23-39.49-27.7-9.82,1.39-18.85,6.84-25.5,15.35-6.17,7.93-9.9,17.99-10.85,29.34h-45.44v-78.78c0-5.95-4.81-10.76-10.73-10.76s-10.76,4.81-10.76,10.76v100.28h65.96c.25,3.73.72,7.76,1.64,11.96,4.95,22.66,19.27,38.27,41.38,45.11,9.2,2.86,18.21,4.25,26.95,4.25,34.46,0,64.16-21.75,80.84-60.93,13.9-32.62,16.38-72.22,6.76-108.59ZM119.7,173.92c.61-.08,1.22-.11,1.84-.11,6.31,0,11.51,4.73,14.13,13.04.44,1.36.22,1.67.06,1.92-3.48,4.59-18.91,7.7-33.79,8.45,1.84-14.52,10.15-22.22,17.77-23.3Z"
@@ -53,6 +313,7 @@
             </svg>
           </a>
         </li>
+
         <li class="nav-branding-item">
           <ul class="nav-branding-group">
             <li class="nav-branding-item">
@@ -64,130 +325,367 @@
             <li class="nav-branding-item">
               <a href="about.html" class="nav-link-primary">About</a>
             </li>
+            <li class="nav-branding-item">
+              <a
+                href="press-kit.html"
+                class="nav-link-primary"
+                aria-current="page"
+                >Press Kit</a
+              >
+            </li>
           </ul>
         </li>
       </ul>
     </header>
-    <ul class="about-grid">
-      <li class="about-grid-image">
-        <figure class="about-image">
+
+    <main class="artist-kit">
+      <section class="artist-bill" aria-labelledby="artist-name">
+        <div>
+          <p class="artist-edition">Artist press kit · Vancouver, Canada</p>
+          <h1 id="artist-name">Garfield<br />Discoteque</h1>
+          <p>Mexican DJ &amp; designer · Therapy Sound resident</p>
+          <p>House / Disco / Indie Dance / Techno</p>
+
+          <nav class="artist-links" aria-label="Artist contact and profiles">
+            <a href="mailto:garfield@therapysound.ca">Booking enquiries ↗</a>
+            <a href="https://www.instagram.com/garfield_discoteque/"
+              >Instagram ↗</a
+            >
+            <a href="https://soundcloud.com/GarfieldDiscoteque">SoundCloud ↗</a>
+            <a href="https://garfield-discoteque.therapysound.ca/"
+              >Therapy Sound ↗</a
+            >
+            <a href="https://linktr.ee/Garfield_Discoteque">Linktree ↗</a>
+          </nav>
+
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to night mode"
+            aria-pressed="false"
+          >
+            <span class="theme-toggle-label">Day</span>
+            <span class="theme-toggle-knob" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <figure class="artist-photo">
+          <!-- Replace with your main artist portrait. -->
           <img
-            src="assets/portraits/leonardo-main-portrait.jpg"
-            width="1500"
-            height="1500"
-            alt="Your Photo"
+            src="assets/project-overviews/placeholder.jpg"
+            width="1920"
+            height="1080"
+            fetchpriority="high"
+            alt=""
           />
+          <figcaption>Garfield Discoteque · Artist portrait</figcaption>
         </figure>
+      </section>
+
+      <nav class="artist-tabs" aria-label="Press kit sections">
+        <a id="tab-press" href="#press">Press Kit</a>
+        <a id="tab-youtube" href="#youtube">YouTube</a>
+      </nav>
+
+      <div id="press">
+        <section class="artist-section" aria-labelledby="artist-bio">
+          <h2 id="artist-bio">Artist bio</h2>
+          <div>
+            <p>
+              Garfield Discoteque is the DJ alias of Leonardo Velázquez, a
+              Mexican designer based in Vancouver. His sets move between the
+              swing of disco, the darker edges of indie dance and the steady
+              pulse of house and techno. He has played across Mexico, Canada and
+              Spain, from Hello Goodbye in Vancouver to Bass Club Madrid.
+            </p>
+            <p>
+              In Vancouver, his work on a party often starts with the poster.
+              Alongside his residency at Therapy Sound, he designs weekly
+              artwork for Lullaby, helps book artists and plays the nights he
+              promotes. His back-to-back sets with Llugcha grew out of sharing
+              booths and playing through sunrise. At Tempo in Mexico, the two
+              took over the booth for an entire night.
+            </p>
+          </div>
+        </section>
+
+        <section class="artist-section" aria-labelledby="featured-date">
+          <h2 id="featured-date">Featured date</h2>
+          <div>
+            <p>
+              <time datetime="2026-11-28">28 November 2026</time> · Vancouver,
+              BC
+            </p>
+            <h3>Llugcha b2b Garfield Discoteque</h3>
+            <p>
+              Vantek and Lullaby bring the pair to Luna Sound Studio for their
+              first all-night back-to-back in Vancouver.
+            </p>
+            <a class="artist-event-link" href="https://ra.co/events/2589818">
+              Event details on Resident Advisor ↗
+            </a>
+          </div>
+        </section>
+
+        <section class="artist-section" aria-labelledby="appearances">
+          <h2 id="appearances">Selected appearances</h2>
+          <dl class="artist-appearances">
+            <div>
+              <dt>Vancouver</dt>
+              <dd>Hello Goodbye, Harbour, You Plus One</dd>
+            </div>
+            <div>
+              <dt>Mexico</dt>
+              <dd>Tempo · All night long with Llugcha</dd>
+            </div>
+            <div>
+              <dt>Madrid</dt>
+              <dd>Bass Club Madrid</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="artist-photos" aria-labelledby="press-photos">
+          <h2 id="press-photos">Press photos</h2>
+
+          <div class="artist-gallery">
+            <figure class="artist-photo">
+              <!-- Replace with a close-up performance photo. -->
+              <img
+                src="assets/project-overviews/placeholder.jpg"
+                width="1920"
+                height="1080"
+                loading="lazy"
+                alt=""
+              />
+              <figcaption>Behind the decks</figcaption>
+            </figure>
+
+            <figure class="artist-photo">
+              <!-- Replace with a wide dancefloor photo. -->
+              <img
+                src="assets/project-overviews/placeholder.jpg"
+                width="1920"
+                height="1080"
+                loading="lazy"
+                alt=""
+              />
+              <figcaption>From the dancefloor</figcaption>
+            </figure>
+          </div>
+
+          <a
+            href="mailto:garfield@therapysound.ca?subject=Garfield%20Discoteque%20press%20photos"
+          >
+            Request high-resolution press photos ↗
+          </a>
+        </section>
+      </div>
+
+      <div id="youtube">
+        <section class="artist-video-section" aria-labelledby="video-heading">
+          <div class="artist-video-heading">
+            <h2 id="video-heading">Recorded sets</h2>
+            <a href="https://youtube.com/@GarfieldDiscoteque">
+              Visit my YouTube channel ↗
+            </a>
+          </div>
+
+          <ul class="artist-video-grid">
+            <li>
+              <a href="https://youtu.be/2sUdyRY2w4c">
+                <img
+                  src="https://i.ytimg.com/vi/2sUdyRY2w4c/hqdefault.jpg"
+                  width="480"
+                  height="360"
+                  loading="lazy"
+                  alt=""
+                />
+                <h3>Haus Residency 2025 ↗</h3>
+                <p>Garfield Discoteque · House &amp; Indie Dance</p>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://youtu.be/g04Ii8kQLbQ">
+                <img
+                  src="https://i.ytimg.com/vi/g04Ii8kQLbQ/hqdefault.jpg"
+                  width="480"
+                  height="360"
+                  loading="lazy"
+                  alt=""
+                />
+                <h3>No Signal Radio 05 ↗</h3>
+                <p>Garfield Discoteque · High-energy house &amp; indie dance</p>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://youtu.be/qEs4_-Yw9SE">
+                <img
+                  src="https://i.ytimg.com/vi/qEs4_-Yw9SE/hqdefault.jpg"
+                  width="480"
+                  height="360"
+                  loading="lazy"
+                  alt=""
+                />
+                <h3>Peto Podcast 006 ↗</h3>
+                <p>Peto b2b Garfield Discoteque</p>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://youtu.be/vx83ZjGpT1E">
+                <img
+                  src="https://i.ytimg.com/vi/vx83ZjGpT1E/hqdefault.jpg"
+                  width="480"
+                  height="360"
+                  loading="lazy"
+                  alt=""
+                />
+                <h3>Llugcha b2b Garfield Discoteque ↗</h3>
+                <p>FOG · Industrial 236 · Vantek</p>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <ul class="footer-global">
+      <li class="footer-tagline">
+        <h2>Let's Connect!</h2>
+        <p>
+          Feel free to reach out with any questions, collaborations, or just to
+          chat about design.
+        </p>
       </li>
-      <li class="about-grid-text">
-        <h2>Press Kit 👀</h2>
 
-        <p>
-          My name is Leonardo Velazquez and I’m a designer and artist who loves
-          building strong visual identities, experimenting with typography, and
-          creating designs that feel alive. My work reflects both my Mexican
-          roots and my passion for music, art, and culture. I push myself to
-          keep growing, finding ways to connect creativity with strategy and
-          turn ideas into experiences people remember.
-        </p>
-        <p>Press kit</p>
+      <li class="footer-highlights">
+        <h2>Selected work</h2>
+        <p><a href="project-lullaby.html">Lullaby</a></p>
+        <p><a href="project-range.html">RANGE</a></p>
+      </li>
 
-        <h3>Testimonials</h3>
+      <li class="footer-contact-social">
+        <h2>Contact &amp; Social</h2>
+        <ul class="footer-socials-list">
+          <li class="footer-item">
+            <a href="https://www.instagram.com/leo_velarte_/">Instagram</a>
+          </li>
+        </ul>
+      </li>
 
-        <p>
-          “He is extremly Sexy and has great Design skills. He's also very a
-          very good kisser” —
-          <a href="https://solyoon.me/" target="_blank">Margot Robbie</a>
-        </p>
-
-        <p>
-          “I ran out of gas once and he let me keep his car for a week. Legend.”
-          —
-          <a href="https://lilyrosen.ca/" target="_blank">Elon Musk</a>
-        </p>
-
-        <p>
-          “I asked him for the AUX once, and now I open for him.” —
-          <a href="https://jacobchong.com/" target="_blank">Fred again</a>
-        </p>
-
-        <p>
-          “He once redesigned my tour visuals in the middle of the night just
-          because ‘the energy felt wrong.’ That’s art.” —
-          <a href="https://emmado.com/" target="_blank">Charli XCX</a>
-        </p>
-
-        <p>
-          “He redesigned my résumé and suddenly I had a personality.” —
-          <a href="https://shrutikarthikeyan.com/" target="_blank"
-            >Steve Jobs’ Ghost</a
-          >
-        </p>
-
-        <p>
-          “He made a brand guideline so sexy I blushed while reading it.” —
-          <a href="https://angelicablanch.com/" target="_blank">Gucci</a>
-        </p>
-
-        <p>
-          “He fixed my alignment and my self-esteem.” —
-          <a href="https://carmenhuang.com/" target="_blank"
-            >Adobe InDesign support rep</a
-          >
-        </p>
-
-        <p>
-          “His flyer designs have sent more people to parties than Eventbrite
-          ever did.” —
-          <a href="https://melcreative.ca/" target="_blank"
-            >The New York Times</a
-          >
+      <li class="footer-full-width">
+        <p><a href="#top">Smooth scroll to the top</a></p>
+        <p class="footer-fineprint">
+          &copy; <span id="copyright-years"></span> Leonardo Velazquez.
         </p>
       </li>
     </ul>
-    <footer>
-      <div class="top_header">
-        <section>
-          <span><i class="fa fa-map-marker"></i></span>
-          <span>6456 E Cordova, Vancouver BC B5K2D3</span>
-        </section>
-        <section>
-          <span><i class="fa fa-phone"></i></span>
-          <span>(1) 778 318 3554</span>
-        </section>
-        <section>
-          <span><i class="fa fa-envelope"></i></span>
-          <span>leonardovelazquezcha@capu.com</span>
-        </section>
-      </div>
-      <span class="border-shape"></span>
-      <div class="bottom_content">
-        <section>
-          <a href="https://www.facebook.com/">
-            <i class="fa-brands fa-facebook"></i
-          ></a>
-          <a href="https://www.instagram.com/leo_velarte_/">
-            <i class="fa-brands fa-instagram"></i
-          ></a>
-          <a href="https://www.instagram.com/leo_velarte_/">
-            <i class="fa-brands fa-twitter"></i
-          ></a>
-          <a href="https://web.telegram.org/k/">
-            <i class="fa-brands fa-telegram"></i
-          ></a>
-        </section>
-        <section>
-          <a href="#">Home</a>
-          <a href="#">About us</a>
-          <a href="#">Order</a>
-          <a href="404.html">404</a>
-          <a href="#">Member</a>
-          <a href="#">Contact Us</a>
-        </section>
-      </div>
-      <div class="copyright">
-        Copyright © 2025 Leonardo Velazquez - All rights reserved
-      </div>
-    </footer>
+
+    <script>
+      // Day / Night
+      const root = document.documentElement;
+      const themeButton = document.getElementById("themeToggle");
+      const themeLabel = themeButton.querySelector(".theme-toggle-label");
+
+      function displayTheme(theme) {
+        const night = theme === "night";
+        root.dataset.theme = theme;
+        themeLabel.textContent = night ? "Night" : "Day";
+        themeButton.setAttribute("aria-pressed", String(night));
+        themeButton.setAttribute(
+          "aria-label",
+          night ? "Switch to day mode" : "Switch to night mode",
+        );
+      }
+
+      displayTheme(root.dataset.theme);
+
+      themeButton.addEventListener("click", () => {
+        const theme = root.dataset.theme === "night" ? "day" : "night";
+        displayTheme(theme);
+        try {
+          localStorage.setItem("portfolio-theme", theme);
+        } catch {
+          // The theme still works for this visit.
+        }
+      });
+
+      // Press Kit / YouTube
+      const tabList = document.querySelector(".artist-tabs");
+      const tabs = Array.from(tabList.querySelectorAll("a"));
+      tabList.setAttribute("role", "tablist");
+
+      function selectTab(activeTab) {
+        for (const tab of tabs) {
+          const selected = tab === activeTab;
+          const panel = document.querySelector(tab.hash);
+          tab.setAttribute("aria-selected", String(selected));
+          tab.tabIndex = selected ? 0 : -1;
+          panel.hidden = !selected;
+        }
+      }
+
+      for (const tab of tabs) {
+        const panel = document.querySelector(tab.hash);
+        tab.setAttribute("role", "tab");
+        tab.setAttribute("aria-controls", panel.id);
+        panel.setAttribute("role", "tabpanel");
+        panel.setAttribute("aria-labelledby", tab.id);
+        panel.tabIndex = 0;
+
+        tab.addEventListener("click", (event) => {
+          event.preventDefault();
+          selectTab(tab);
+          history.replaceState(null, "", tab.hash);
+        });
+      }
+
+      tabList.addEventListener("keydown", (event) => {
+        const index = tabs.indexOf(document.activeElement);
+        if (index < 0) return;
+
+        let next;
+        switch (event.key) {
+          case "ArrowRight":
+            next = tabs[(index + 1) % tabs.length];
+            break;
+          case "ArrowLeft":
+            next = tabs[(index - 1 + tabs.length) % tabs.length];
+            break;
+          case "Home":
+            next = tabs[0];
+            break;
+          case "End":
+            next = tabs[tabs.length - 1];
+            break;
+          case " ":
+            event.preventDefault();
+            tabs[index].click();
+            return;
+          default:
+            return;
+        }
+
+        event.preventDefault();
+        next.focus();
+        next.click();
+      });
+
+      function openLinkedTab() {
+        const linkedTab = tabs.find((tab) => tab.hash === location.hash);
+        if (linkedTab) selectTab(linkedTab);
+      }
+
+      selectTab(tabs[0]);
+      openLinkedTab();
+      window.addEventListener("hashchange", openLinkedTab);
+
+      document.getElementById("copyright-years").textContent =
+        new Date().getFullYear();
+    </script>
   </body>
 </html>
