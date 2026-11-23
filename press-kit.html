@@ -3,18 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>Garfield Discoteque — Artist Press Kit | Leonardo Velazquez</title>
-
     <meta
       name="description"
-      content="Artist bio, live DJ sets, press photos and booking enquiries for Garfield Discoteque, a Mexican DJ and Therapy Sound resident based in Vancouver."
+      content="Artist bio, recorded sets, performance highlights and booking enquiries for Garfield Discoteque, a Mexican DJ based in Vancouver."
     />
     <meta
       property="og:image"
       content="https://leovelazquez.com/assets/branding-images/logo.png"
     />
-
     <link rel="icon" type="image/png" href="assets/branding-images/logo.png" />
     <link
       rel="stylesheet"
@@ -33,51 +30,67 @@
 
     <style>
       .artist-kit {
-        --artist-accent: var(--color-accent-primary, #d60606);
+        --ink: var(--theme-text, #222);
+        --paper: var(--theme-bg, #f9f2e9);
+        --accent: var(--color-accent-primary, #d60606);
         box-sizing: border-box;
         width: min(100%, 100rem);
         margin-inline: auto;
         padding: clamp(1rem, 3vw, 3rem);
-        color: var(--theme-text);
+        color: var(--ink);
+      }
+
+      .artist-kit *,
+      .artist-kit *::before,
+      .artist-kit *::after {
+        box-sizing: border-box;
+      }
+
+      .artist-kit [hidden] {
+        display: none !important;
       }
 
       .artist-kit h1,
       .artist-kit h2,
-      .artist-kit h3 {
+      .artist-kit h3,
+      .artist-kit summary {
         font-family: var(--font-family-heading);
         color: inherit;
       }
 
       .artist-kit h1 {
-        margin: 0.16em 0 0.22em;
-        color: var(--artist-accent);
-        font-size: clamp(4rem, 10vw, 10rem);
+        margin: 0.15em 0 0.22em;
+        color: var(--accent);
+        font-size: clamp(3.4rem, 10vw, 10rem);
         font-weight: 750;
         letter-spacing: -0.045em;
-        line-height: 0.86;
+        line-height: 0.88;
       }
 
       .artist-kit h2 {
         margin: 0;
-        font-size: clamp(2.3rem, 4.5vw, 4.5rem);
-        line-height: 1;
-      }
-
-      .artist-kit h3 {
-        margin: 0.35rem 0 0.85rem;
-        font-size: clamp(2rem, 3vw, 3.25rem);
+        font-size: clamp(2.2rem, 4.5vw, 4.5rem);
         line-height: 1.05;
       }
 
-      .artist-kit p,
-      .artist-kit dd {
-        max-width: 62ch;
-        color: inherit;
-        line-height: 1.5;
+      .artist-kit h3 {
+        margin: 0.4rem 0 0.65rem;
+        font-size: clamp(1.7rem, 3vw, 3rem);
+        line-height: 1.08;
       }
 
+      .artist-kit p,
+      .artist-kit dd,
+      .artist-kit li {
+        color: inherit;
+        line-height: 1.45;
+      }
+
+      .artist-kit p {
+        max-width: 64ch;
+      }
       .artist-kit p + p {
-        margin-top: 1rem;
+        margin-top: 0.9rem;
       }
 
       .artist-kit a {
@@ -86,19 +99,17 @@
         text-underline-offset: 0.2em;
       }
 
-      .artist-kit a:hover {
-        color: var(--artist-accent);
-      }
-
-      .artist-kit :is(a, button, [role="tabpanel"]):focus-visible {
+      .artist-kit :is(a, button, summary, [role="tabpanel"]):focus-visible {
         outline: 2px solid currentColor;
-        outline-offset: 4px;
+        outline-offset: 3px;
       }
 
       .artist-bill,
       .artist-section,
-      .artist-gallery {
+      .photo-grid,
+      .video-grid {
         display: grid;
+        grid-template-columns: minmax(0, 1fr);
         gap: clamp(1.25rem, 3vw, 3rem);
       }
 
@@ -108,152 +119,212 @@
       }
 
       .artist-edition {
-        padding-block: 0.6rem;
         border-block: 1px solid currentColor;
+        padding-block: 0.6rem;
         font-size: 0.95rem;
       }
 
       .artist-links {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.65rem 1.25rem;
-        margin-block: 1.25rem;
+        gap: 0.15rem 1.2rem;
+        margin-block: 0.9rem;
+      }
+
+      .artist-links a,
+      .channel-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
       }
 
       .artist-bill .theme-toggle {
-        margin: 1.25rem 0 0;
+        margin: 1rem 0 0;
       }
 
-      .artist-photo {
+      .artist-kit figure {
         margin: 0;
       }
 
-      .artist-photo img {
+      .artist-kit figure img,
+      .video-grid img {
         display: block;
         width: 100%;
         height: auto;
-        aspect-ratio: 4 / 3;
+        border-radius: var(--radius-sm, 0.5rem);
         object-fit: cover;
-        border-radius: var(--radius-sm);
       }
 
-      .artist-photo figcaption {
-        margin-top: 0.55rem;
+      .artist-kit figure img {
+        aspect-ratio: 4 / 3;
+      }
+      .artist-kit figcaption {
+        margin-top: 0.5rem;
         font-size: 0.95rem;
       }
 
+      /* Equal-width tap targets on phones. */
       .artist-tabs {
-        display: flex;
-        gap: 0.5rem;
-        padding-bottom: 0.85rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.4rem;
+        padding-bottom: 0.9rem;
         border-bottom: 1px solid currentColor;
       }
 
       .artist-tabs a {
-        padding: 0.5rem 1.1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.45rem 0.5rem;
         border: 1px solid currentColor;
         border-radius: 999px;
         font-family: var(--font-family-heading);
-        font-size: 1.3rem;
         font-weight: 650;
+        font-size: 1.25rem;
         line-height: 1;
         text-decoration: none;
       }
 
       .artist-tabs a[aria-selected="true"] {
-        border-color: var(--theme-text);
-        background: var(--theme-text);
-        color: var(--theme-bg);
-      }
-
-      .artist-kit [hidden] {
-        display: none !important;
+        border-color: var(--ink);
+        color: var(--paper);
+        background: var(--ink);
       }
 
       .artist-section,
-      .artist-photos,
-      .artist-video-section {
-        padding-block: clamp(2rem, 4vw, 4rem);
+      .artist-block {
+        padding-block: clamp(1.75rem, 4vw, 4rem);
       }
 
       .artist-section + .artist-section,
-      .artist-photos {
+      .artist-section + .artist-block,
+      .artist-block + .artist-block {
         border-top: 1px solid currentColor;
       }
 
-      .artist-gallery {
-        margin-block: 1.5rem;
-      }
-      .artist-appearances {
-        margin: 0;
-      }
-
-      .artist-appearances > div {
-        padding-block: 0.8rem;
-        border-bottom: 1px solid currentColor;
-      }
-
-      .artist-appearances > div:first-child {
-        padding-top: 0;
-      }
-      .artist-appearances dt {
-        font-weight: 700;
-      }
-      .artist-appearances dd {
-        margin: 0.2rem 0 0;
-      }
-
-      .artist-event-link {
+      .artist-kit .event-link {
         display: inline-block;
         margin-top: 1rem;
       }
 
-      .artist-video-heading {
+      .photo-grid {
+        margin-block: 1.5rem;
+      }
+
+      .video-heading {
         display: flex;
         align-items: baseline;
         justify-content: space-between;
         flex-wrap: wrap;
-        gap: 1rem;
-        margin-bottom: 1.75rem;
+        gap: 0.4rem 1rem;
+        margin-bottom: 1.25rem;
       }
 
-      .artist-video-grid {
-        display: grid;
-        gap: 2rem 1.5rem;
-        margin: 0;
+      .video-grid {
         padding: 0;
+        margin: 0;
         list-style: none;
       }
 
-      .artist-video-grid a {
+      .video-grid a {
         display: block;
-        color: inherit;
         text-decoration: none;
       }
-
-      .artist-video-grid img {
-        display: block;
-        width: 100%;
-        height: auto;
+      .video-grid img {
         aspect-ratio: 16 / 9;
-        object-fit: cover;
-        border-radius: var(--radius-sm);
-        background: var(--theme-card);
       }
-
-      .artist-video-grid h3 {
+      .video-grid h3 {
         margin: 0.7rem 0 0.2rem;
-        font-size: clamp(1.7rem, 3vw, 2.55rem);
       }
 
-      .artist-video-grid p {
+      /* Text-only performance highlights. */
+      .highlight-list {
         margin: 0;
       }
 
-      .artist-video-grid a:hover h3 {
-        color: var(--artist-accent);
-        text-decoration: underline;
-        text-underline-offset: 0.12em;
+      .highlight-list > div {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.15rem 0.85rem;
+        padding-block: 0.65rem;
+        border-bottom: 1px solid
+          color-mix(in srgb, currentColor 28%, transparent);
+      }
+
+      .highlight-list > div:first-child {
+        padding-top: 0;
+      }
+      .highlight-list dt {
+        font-weight: 700;
+      }
+      .highlight-list dd {
+        margin: 0;
+      }
+
+      /* Native year accordions work with touch, mouse and keyboard. */
+      .gig-year {
+        border-bottom: 1px solid currentColor;
+      }
+
+      .gig-year summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        min-height: 56px;
+        padding-block: 0.6rem;
+        font-size: clamp(1.85rem, 4vw, 2.65rem);
+        font-weight: 650;
+        line-height: 1.1;
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .gig-year summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .gig-year summary::after {
+        content: "+";
+        flex: none;
+        color: var(--accent);
+      }
+
+      .gig-year[open] summary::after {
+        content: "−";
+      }
+
+      .gig-year small {
+        font-family: var(--font-family-body);
+        font-size: 0.875rem;
+        font-weight: 400;
+      }
+
+      .gig-list {
+        list-style: none;
+        margin: 0;
+        padding: 0.25rem 0 1.2rem;
+      }
+
+      .gig-list li {
+        display: grid;
+        grid-template-columns: 5.75rem minmax(0, 1fr);
+        gap: 0.65rem;
+        padding-block: 0.42rem;
+        border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+      }
+
+      .gig-date {
+        font-variant-numeric: tabular-nums;
+      }
+      .gig-name {
+        overflow-wrap: anywhere;
+      }
+
+      html[data-theme="night"] .artist-kit {
+        --accent: #ff8378;
       }
 
       html[data-theme="night"] body {
@@ -265,27 +336,58 @@
         --color-link-visited: #ff8378;
       }
 
-      html[data-theme="night"] .artist-kit {
-        --artist-accent: #ff8378;
-      }
-
       html[data-theme="night"] .footer-global :is(h2, p) {
         color: var(--theme-text);
       }
 
-      @media (min-width: 48rem) {
-        .artist-video-grid,
-        .artist-gallery {
+      @media (hover: hover) {
+        .artist-links a:hover,
+        .channel-link:hover,
+        .video-grid a:hover h3,
+        .gig-year summary:hover {
+          color: var(--accent);
+        }
+      }
+
+      @media (max-width: 39.99rem) {
+        .hero-header .nav-branding-group {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .hero-header .nav-link-primary {
+          display: inline-flex;
+          align-items: center;
+          min-height: 44px;
+        }
+
+        .footer-global > li {
+          min-width: 0;
+        }
+      }
+
+      @media (min-width: 40rem) {
+        .artist-tabs {
+          display: flex;
+        }
+        .artist-tabs a {
+          min-width: 7rem;
+        }
+        .highlight-list > div {
+          grid-template-columns: 1fr 1.5fr;
+        }
+        .photo-grid,
+        .video-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
       @media (min-width: 52rem) {
         .artist-bill {
-          grid-template-columns: 1fr 1.15fr;
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
         }
         .artist-section {
-          grid-template-columns: minmax(14rem, 0.8fr) 1.2fr;
+          grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
         }
       }
     </style>
@@ -313,7 +415,6 @@
             </svg>
           </a>
         </li>
-
         <li class="nav-branding-item">
           <ul class="nav-branding-group">
             <li class="nav-branding-item">
@@ -370,8 +471,7 @@
           </button>
         </div>
 
-        <figure class="artist-photo">
-          <!-- Replace with your main artist portrait. -->
+        <figure>
           <img
             src="assets/project-overviews/placeholder.jpg"
             width="1920"
@@ -383,14 +483,16 @@
         </figure>
       </section>
 
-      <nav class="artist-tabs" aria-label="Press kit sections">
+      <nav class="artist-tabs" aria-label="Artist press kit sections">
         <a id="tab-press" href="#press">Press Kit</a>
         <a id="tab-youtube" href="#youtube">YouTube</a>
+        <a id="tab-gigs" href="#gigs">Gigs</a>
       </nav>
 
+      <!-- PRESS KIT -->
       <div id="press">
-        <section class="artist-section" aria-labelledby="artist-bio">
-          <h2 id="artist-bio">Artist bio</h2>
+        <section class="artist-section">
+          <h2>Artist bio</h2>
           <div>
             <p>
               Garfield Discoteque is the DJ alias of Leonardo Velázquez, a
@@ -410,8 +512,8 @@
           </div>
         </section>
 
-        <section class="artist-section" aria-labelledby="featured-date">
-          <h2 id="featured-date">Featured date</h2>
+        <section class="artist-section">
+          <h2>Featured date</h2>
           <div>
             <p>
               <time datetime="2026-11-28">28 November 2026</time> · Vancouver,
@@ -422,36 +524,16 @@
               Vantek and Lullaby bring the pair to Luna Sound Studio for their
               first all-night back-to-back in Vancouver.
             </p>
-            <a class="artist-event-link" href="https://ra.co/events/2589818">
-              Event details on Resident Advisor ↗
-            </a>
+            <a class="event-link" href="https://ra.co/events/2589818"
+              >Event details on Resident Advisor ↗</a
+            >
           </div>
         </section>
 
-        <section class="artist-section" aria-labelledby="appearances">
-          <h2 id="appearances">Selected appearances</h2>
-          <dl class="artist-appearances">
-            <div>
-              <dt>Vancouver</dt>
-              <dd>Hello Goodbye, Harbour, You Plus One</dd>
-            </div>
-            <div>
-              <dt>Mexico</dt>
-              <dd>Tempo · All night long with Llugcha</dd>
-            </div>
-            <div>
-              <dt>Madrid</dt>
-              <dd>Bass Club Madrid</dd>
-            </div>
-          </dl>
-        </section>
-
-        <section class="artist-photos" aria-labelledby="press-photos">
-          <h2 id="press-photos">Press photos</h2>
-
-          <div class="artist-gallery">
-            <figure class="artist-photo">
-              <!-- Replace with a close-up performance photo. -->
+        <section class="artist-block">
+          <h2>Press photos</h2>
+          <div class="photo-grid">
+            <figure>
               <img
                 src="assets/project-overviews/placeholder.jpg"
                 width="1920"
@@ -461,9 +543,7 @@
               />
               <figcaption>Behind the decks</figcaption>
             </figure>
-
-            <figure class="artist-photo">
-              <!-- Replace with a wide dancefloor photo. -->
+            <figure>
               <img
                 src="assets/project-overviews/placeholder.jpg"
                 width="1920"
@@ -474,25 +554,25 @@
               <figcaption>From the dancefloor</figcaption>
             </figure>
           </div>
-
           <a
             href="mailto:garfield@therapysound.ca?subject=Garfield%20Discoteque%20press%20photos"
+            >Request high-resolution press photos ↗</a
           >
-            Request high-resolution press photos ↗
-          </a>
         </section>
       </div>
 
+      <!-- YOUTUBE -->
       <div id="youtube">
-        <section class="artist-video-section" aria-labelledby="video-heading">
-          <div class="artist-video-heading">
-            <h2 id="video-heading">Recorded sets</h2>
-            <a href="https://youtube.com/@GarfieldDiscoteque">
-              Visit my YouTube channel ↗
-            </a>
+        <section class="artist-block">
+          <div class="video-heading">
+            <h2>Recorded sets</h2>
+            <a
+              class="channel-link"
+              href="https://youtube.com/@GarfieldDiscoteque"
+              >Visit my YouTube channel ↗</a
+            >
           </div>
-
-          <ul class="artist-video-grid">
+          <ul class="video-grid">
             <li>
               <a href="https://youtu.be/2sUdyRY2w4c">
                 <img
@@ -506,7 +586,6 @@
                 <p>Garfield Discoteque · House &amp; Indie Dance</p>
               </a>
             </li>
-
             <li>
               <a href="https://youtu.be/g04Ii8kQLbQ">
                 <img
@@ -520,7 +599,6 @@
                 <p>Garfield Discoteque · High-energy house &amp; indie dance</p>
               </a>
             </li>
-
             <li>
               <a href="https://youtu.be/qEs4_-Yw9SE">
                 <img
@@ -534,7 +612,6 @@
                 <p>Peto b2b Garfield Discoteque</p>
               </a>
             </li>
-
             <li>
               <a href="https://youtu.be/vx83ZjGpT1E">
                 <img
@@ -551,6 +628,595 @@
           </ul>
         </section>
       </div>
+
+      <!-- GIGS — TEXT ONLY -->
+      <div id="gigs">
+        <section class="artist-section" aria-labelledby="highlights-heading">
+          <h2 id="highlights-heading">Performance highlights</h2>
+
+          <dl class="highlight-list">
+            <div>
+              <dt>Yambak</dt>
+              <dd>Headliner · Puerto Vallarta</dd>
+            </div>
+            <div>
+              <dt>Oria AfterDark</dt>
+              <dd>Headliner · Toronto</dd>
+            </div>
+            <div>
+              <dt>Last Call</dt>
+              <dd>Headliner · Toronto</dd>
+            </div>
+            <div>
+              <dt>Bass Club</dt>
+              <dd>Headliner · Madrid</dd>
+            </div>
+            <div>
+              <dt>Lullaby</dt>
+              <dd>Residency · Vancouver</dd>
+            </div>
+            <div>
+              <dt>You Plus One</dt>
+              <dd>Residency · Vancouver</dd>
+            </div>
+            <div>
+              <dt>Hello Goodbye</dt>
+              <dd>Residency · Vancouver</dd>
+            </div>
+            <div>
+              <dt>Break</dt>
+              <dd>Garfield All Night Long · Vancouver</dd>
+            </div>
+            <div>
+              <dt>Mezcal Disco</dt>
+              <dd>Headliner · Vancouver</dd>
+            </div>
+            <div>
+              <dt>Porta Fest</dt>
+              <dd>Headliner · Vancouver</dd>
+            </div>
+            <div>
+              <dt>RX</dt>
+              <dd>Headliner · Vancouver</dd>
+            </div>
+            <div>
+              <dt>Cinemagic</dt>
+              <dd>Support for Dee Montero · Vancouver</dd>
+            </div>
+            <div>
+              <dt>Industrial</dt>
+              <dd>Support for Brennen Grey · Vancouver</dd>
+            </div>
+            <div>
+              <dt>Vantek</dt>
+              <dd>Support for Yamagucci · Vancouver</dd>
+            </div>
+            <div>
+              <dt>You Plus One</dt>
+              <dd>Support for Emanuel Satie · Vancouver</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="artist-section" aria-labelledby="archive-heading">
+          <h2 id="archive-heading">Gigs by year</h2>
+
+          <div>
+            <details class="gig-year" open>
+              <summary>
+                <span>2026 <small>Upcoming</small></span>
+              </summary>
+              <ul class="gig-list">
+                <li>
+                  <time class="gig-date" datetime="2026-11-28">28 Nov</time>
+                  <span class="gig-name">
+                    <a href="https://ra.co/events/2589818"
+                      >Llugcha b2b Garfield Discoteque ↗</a
+                    ><br />
+                    Luna Sound Studio · Vancouver · All night long
+                  </span>
+                </li>
+              </ul>
+            </details>
+
+            <details class="gig-year">
+              <summary>
+                <span>2025 <small>50 dates</small></span>
+              </summary>
+              <ul class="gig-list">
+                <li>
+                  <span class="gig-date">16 Jan</span
+                  ><span class="gig-name">Therapy</span>
+                </li>
+                <li>
+                  <span class="gig-date">18 Jan</span
+                  ><span class="gig-name"
+                    >You Plus One · Support for Emanuel Satie</span
+                  >
+                </li>
+                <li>
+                  <span class="gig-date">30 Jan</span
+                  ><span class="gig-name">Last Call · Toronto</span>
+                </li>
+                <li>
+                  <span class="gig-date">1 Feb</span
+                  ><span class="gig-name">Oria AfterDark · Toronto</span>
+                </li>
+                <li>
+                  <span class="gig-date">2 Feb</span
+                  ><span class="gig-name">Penthouse · Toronto</span>
+                </li>
+                <li>
+                  <span class="gig-date">6 Feb</span
+                  ><span class="gig-name">Therapy</span>
+                </li>
+                <li>
+                  <span class="gig-date">15 Feb</span
+                  ><span class="gig-name">Yambak · Puerto Vallarta</span>
+                </li>
+                <li>
+                  <span class="gig-date">28 Feb</span
+                  ><span class="gig-name">Lullaboys</span>
+                </li>
+                <li>
+                  <span class="gig-date">6 Mar</span
+                  ><span class="gig-name">Break Fortune · All night long</span>
+                </li>
+                <li>
+                  <span class="gig-date">8 Mar</span
+                  ><span class="gig-name"
+                    >Lullaby · Direct support for Vongold</span
+                  >
+                </li>
+                <li>
+                  <span class="gig-date">15 Mar</span
+                  ><span class="gig-name"
+                    >You Plus One · Direct support for Siavash</span
+                  >
+                </li>
+                <li>
+                  <span class="gig-date">21 Mar</span
+                  ><span class="gig-name">&amp;REA Fest</span>
+                </li>
+                <li>
+                  <span class="gig-date">21 Mar</span
+                  ><span class="gig-name">Glow</span>
+                </li>
+                <li>
+                  <span class="gig-date">28 Mar</span
+                  ><span class="gig-name">Arcana</span>
+                </li>
+                <li>
+                  <span class="gig-date">29 Mar</span
+                  ><span class="gig-name">Lullaby</span>
+                </li>
+                <li>
+                  <span class="gig-date">11 Apr</span
+                  ><span class="gig-name">Placebo</span>
+                </li>
+                <li>
+                  <span class="gig-date">12 Apr</span
+                  ><span class="gig-name">Nether Underground</span>
+                </li>
+                <li>
+                  <span class="gig-date">19 Apr</span
+                  ><span class="gig-name">Proper Manfil</span>
+                </li>
+                <li>
+                  <span class="gig-date">20 Apr</span
+                  ><span class="gig-name">Therapy</span>
+                </li>
+                <li>
+                  <span class="gig-date">27 Apr</span
+                  ><span class="gig-name"
+                    >You Plus One · Support for Nicolas Masseyeff</span
+                  >
+                </li>
+                <li>
+                  <span class="gig-date">1 May</span
+                  ><span class="gig-name">Tempo Club · Querétaro</span>
+                </li>
+                <li>
+                  <span class="gig-date">3 May</span
+                  ><span class="gig-name">Carina 33 · Valle de Bravo</span>
+                </li>
+                <li>
+                  <span class="gig-date">8 May</span
+                  ><span class="gig-name">Porta Janis · Mexico City</span>
+                </li>
+                <li>
+                  <span class="gig-date">30 May</span
+                  ><span class="gig-name">Vendetta Spksy · Guadalajara</span>
+                </li>
+                <li>
+                  <span class="gig-date">12 Jun</span
+                  ><span class="gig-name">Unders</span>
+                </li>
+                <li>
+                  <span class="gig-date">13–15 Jun</span
+                  ><span class="gig-name">Tribe</span>
+                </li>
+                <li>
+                  <span class="gig-date">20 Jun</span
+                  ><span class="gig-name">Proper House</span>
+                </li>
+                <li>
+                  <span class="gig-date">21 Jun</span
+                  ><span class="gig-name">Grooveland</span>
+                </li>
+                <li>
+                  <span class="gig-date">27 Jun</span
+                  ><span class="gig-name">Lullaby</span>
+                </li>
+                <li>
+                  <span class="gig-date">28 Jun</span
+                  ><span class="gig-name">Techno Portal · Industrial</span>
+                </li>
+                <li>
+                  <span class="gig-date">5 Jul</span
+                  ><span class="gig-name">Grooveland</span>
+                </li>
+                <li>
+                  <span class="gig-date">9 Jul</span
+                  ><span class="gig-name">Arcana</span>
+                </li>
+                <li>
+                  <span class="gig-date">19 Jul</span
+                  ><span class="gig-name">FOG · Vantek</span>
+                </li>
+                <li>
+                  <span class="gig-date">24 Jul</span
+                  ><span class="gig-name">Therapy Anniversary</span>
+                </li>
+                <li>
+                  <span class="gig-date">26 Jul</span
+                  ><span class="gig-name">Mezcal Disco · Soma</span>
+                </li>
+                <li>
+                  <span class="gig-date">1 Aug</span
+                  ><span class="gig-name">Grooveland</span>
+                </li>
+                <li>
+                  <span class="gig-date">3 Aug</span
+                  ><span class="gig-name">Dice · Lullaby</span>
+                </li>
+                <li>
+                  <span class="gig-date">14 Aug</span
+                  ><span class="gig-name">Therapy</span>
+                </li>
+                <li>
+                  <span class="gig-date">16 Aug</span
+                  ><span class="gig-name">Porque No?</span>
+                </li>
+                <li>
+                  <span class="gig-date">22 Aug</span
+                  ><span class="gig-name">Grooveland</span>
+                </li>
+                <li>
+                  <span class="gig-date">31 Aug</span
+                  ><span class="gig-name">Grooveland</span>
+                </li>
+                <li>
+                  <span class="gig-date">2 Oct</span
+                  ><span class="gig-name">Waves of Illusion</span>
+                </li>
+                <li>
+                  <span class="gig-date">9 Oct</span
+                  ><span class="gig-name">Unders · All night long</span>
+                </li>
+                <li>
+                  <span class="gig-date">17–19 Oct</span
+                  ><span class="gig-name">Private event</span>
+                </li>
+                <li>
+                  <span class="gig-date">19 Oct</span
+                  ><span class="gig-name">Thirdwave</span>
+                </li>
+                <li>
+                  <span class="gig-date">30 Oct</span
+                  ><span class="gig-name">Therapy</span>
+                </li>
+                <li>
+                  <span class="gig-date">6 Nov</span
+                  ><span class="gig-name">Northern Haus</span>
+                </li>
+                <li>
+                  <span class="gig-date">22 Nov</span
+                  ><span class="gig-name">Lullaby</span>
+                </li>
+                <li>
+                  <span class="gig-date">11 Dec</span
+                  ><span class="gig-name">Therapy</span>
+                </li>
+                <li>
+                  <span class="gig-date">26 Dec</span
+                  ><span class="gig-name">Tempo Club · Querétaro</span>
+                </li>
+              </ul>
+            </details>
+
+            <details class="gig-year">
+              <summary>
+                <span>2024 <small>38 shows</small></span>
+              </summary>
+              <ul class="gig-list">
+                <li>
+                  <span class="gig-date">19 Jan</span
+                  ><span class="gig-name">Mictlan</span>
+                </li>
+                <li>
+                  <span class="gig-date">19 Jan</span
+                  ><span class="gig-name">Odd Days</span>
+                </li>
+                <li>
+                  <span class="gig-date">8 Feb</span
+                  ><span class="gig-name">Therapy</span>
+                </li>
+                <li>
+                  <span class="gig-date">16 Feb</span
+                  ><span class="gig-name">Lullaby</span>
+                </li>
+                <li>
+                  <span class="gig-date">17 Feb</span
+                  ><span class="gig-name">I’m Lost Too</span>
+                </li>
+                <li>
+                  <span class="gig-date">18 Feb</span
+                  ><span class="gig-name">Harbour · Freak On</span>
+                </li>
+                <li>
+                  <span class="gig-date">1 Mar</span
+                  ><span class="gig-name">Overground Lullaby</span>
+                </li>
+                <li>
+                  <span class="gig-date">15 Mar</span
+                  ><span class="gig-name">Odd Days</span>
+                </li>
+                <li>
+                  <span class="gig-date">16 Mar</span
+                  ><span class="gig-name">Lullaboys Day Party</span>
+                </li>
+                <li>
+                  <span class="gig-date">28 Mar</span
+                  ><span class="gig-name">Playhop · D/6</span>
+                </li>
+                <li>
+                  <span class="gig-date">31 Mar</span
+                  ><span class="gig-name">Therapy</span>
+                </li>
+                <li>
+                  <span class="gig-date">11 Apr</span
+                  ><span class="gig-name">Soma Music Hub</span>
+                </li>
+                <li>
+                  <span class="gig-date">26 Apr</span
+                  ><span class="gig-name">Tofino Camp</span>
+                </li>
+                <li>
+                  <span class="gig-date">19 May</span
+                  ><span class="gig-name">RX · D/6</span>
+                </li>
+                <li>
+                  <span class="gig-date">19 May</span
+                  ><span class="gig-name">Lullaboys × Vantek</span>
+                </li>
+                <li>
+                  <span class="gig-date">20 Jun</span
+                  ><span class="gig-name">Therapy</span>
+                </li>
+                <li>
+                  <span class="gig-date">30 Jun</span
+                  ><span class="gig-name">RX Afterparty · Harbour</span>
+                </li>
+                <li>
+                  <span class="gig-date">1 Jul</span
+                  ><span class="gig-name">Porque No Afterparty</span>
+                </li>
+                <li>
+                  <span class="gig-date">7 Jul</span
+                  ><span class="gig-name">Vortex</span>
+                </li>
+                <li>
+                  <span class="gig-date">18 Jul</span
+                  ><span class="gig-name">Bass Club Madrid</span>
+                </li>
+                <li>
+                  <span class="gig-date">26 Jul</span
+                  ><span class="gig-name">Lullaby</span>
+                </li>
+                <li>
+                  <span class="gig-date">27 Jul</span
+                  ><span class="gig-name">Ravin Collective</span>
+                </li>
+                <li>
+                  <span class="gig-date">8 Aug</span
+                  ><span class="gig-name">Therapy</span>
+                </li>
+                <li>
+                  <span class="gig-date">17 Aug</span
+                  ><span class="gig-name">Disco Mezcal</span>
+                </li>
+                <li>
+                  <span class="gig-date">23 Aug</span
+                  ><span class="gig-name">Proper House</span>
+                </li>
+                <li>
+                  <span class="gig-date">7 Sep</span
+                  ><span class="gig-name">Grooveland</span>
+                </li>
+                <li>
+                  <span class="gig-date">14 Sep</span
+                  ><span class="gig-name">Lullaby</span>
+                </li>
+                <li>
+                  <span class="gig-date">19 Sep</span
+                  ><span class="gig-name">Therapy</span>
+                </li>
+                <li>
+                  <span class="gig-date">20 Sep</span
+                  ><span class="gig-name">FOG Industrial</span>
+                </li>
+                <li>
+                  <span class="gig-date">11 Oct</span
+                  ><span class="gig-name">You Plus One Hausparty</span>
+                </li>
+                <li>
+                  <span class="gig-date">26 Oct</span
+                  ><span class="gig-name">You Plus One HauntedHaus</span>
+                </li>
+                <li>
+                  <span class="gig-date">2 Nov</span
+                  ><span class="gig-name">Day of the Death</span>
+                </li>
+                <li>
+                  <span class="gig-date">8 Nov</span
+                  ><span class="gig-name">Porta Fest</span>
+                </li>
+                <li>
+                  <span class="gig-date">14 Nov</span
+                  ><span class="gig-name">Industrial × Lullaby</span>
+                </li>
+                <li>
+                  <span class="gig-date">16 Nov</span
+                  ><span class="gig-name">Vantek · Yamagucci</span>
+                </li>
+                <li>
+                  <span class="gig-date">30 Nov</span
+                  ><span class="gig-name">Soma Music Hub</span>
+                </li>
+                <li>
+                  <span class="gig-date">5 Dec</span
+                  ><span class="gig-name">Northern Haus Residency</span>
+                </li>
+                <li>
+                  <span class="gig-date">19 Dec</span
+                  ><span class="gig-name">Therapy</span>
+                </li>
+              </ul>
+            </details>
+
+            <details class="gig-year">
+              <summary>
+                <span>2023 <small>28 bookings</small></span>
+              </summary>
+              <ul class="gig-list">
+                <li>
+                  <span class="gig-date">17 Jan</span
+                  ><span class="gig-name">Lucid Mansion</span>
+                </li>
+                <li>
+                  <span class="gig-date">28 Jan</span
+                  ><span class="gig-name">Lucid Mansion</span>
+                </li>
+                <li>
+                  <span class="gig-date">14 Feb</span
+                  ><span class="gig-name">Sessions</span>
+                </li>
+                <li>
+                  <span class="gig-date">24 Mar</span
+                  ><span class="gig-name">Lullaby</span>
+                </li>
+                <li>
+                  <span class="gig-date">29 Apr</span
+                  ><span class="gig-name">Sun Party</span>
+                </li>
+                <li>
+                  <span class="gig-date">6 May</span
+                  ><span class="gig-name">Art Gallery Afterparty</span>
+                </li>
+                <li>
+                  <span class="gig-date">12 May</span
+                  ><span class="gig-name">Lucid Mansion</span>
+                </li>
+                <li>
+                  <span class="gig-date">3 Jun</span
+                  ><span class="gig-name">Sessions</span>
+                </li>
+                <li>
+                  <span class="gig-date">17 Jun</span
+                  ><span class="gig-name">Galactea</span>
+                </li>
+                <li>
+                  <span class="gig-date">23 Jun</span
+                  ><span class="gig-name">Monster House</span>
+                </li>
+                <li>
+                  <span class="gig-date">24 Jun</span
+                  ><span class="gig-name">Tech &amp; House</span>
+                </li>
+                <li>
+                  <span class="gig-date">7 Jul</span
+                  ><span class="gig-name">Grooveland Vol. 4</span>
+                </li>
+                <li>
+                  <span class="gig-date">15 Jul</span
+                  ><span class="gig-name">Sessions</span>
+                </li>
+                <li>
+                  <span class="gig-date">23 Jul</span
+                  ><span class="gig-name">Sunset Electronic</span>
+                </li>
+                <li>
+                  <span class="gig-date">3 Aug</span
+                  ><span class="gig-name">Odd Days</span>
+                </li>
+                <li>
+                  <span class="gig-date">10 Aug</span
+                  ><span class="gig-name">GorgoMish</span>
+                </li>
+                <li>
+                  <span class="gig-date">24 Aug</span
+                  ><span class="gig-name">Odd Days</span>
+                </li>
+                <li>
+                  <span class="gig-date">14 Sep</span
+                  ><span class="gig-name">Odd Days</span>
+                </li>
+                <li>
+                  <span class="gig-date">23 Sep</span
+                  ><span class="gig-name">Vault · Dee Montero</span>
+                </li>
+                <li>
+                  <span class="gig-date">30 Sep</span
+                  ><span class="gig-name">Odd Days</span>
+                </li>
+                <li>
+                  <span class="gig-date">5 Oct</span
+                  ><span class="gig-name">Galactea</span>
+                </li>
+                <li>
+                  <span class="gig-date">8 Oct</span
+                  ><span class="gig-name">Grooveland</span>
+                </li>
+                <li>
+                  <span class="gig-date">19 Oct</span
+                  ><span class="gig-name">Therapy</span>
+                </li>
+                <li>
+                  <span class="gig-date">26 Oct</span
+                  ><span class="gig-name">Therapy · Siavash</span>
+                </li>
+                <li>
+                  <span class="gig-date">31 Oct</span
+                  ><span class="gig-name">Vantek</span>
+                </li>
+                <li>
+                  <span class="gig-date">2 Nov</span
+                  ><span class="gig-name">Mictlan</span>
+                </li>
+                <li>
+                  <span class="gig-date">1–3 Dec</span
+                  ><span class="gig-name">Anti Fest</span>
+                </li>
+                <li>
+                  <span class="gig-date">1 Dec</span
+                  ><span class="gig-name">Rave Boiler Room</span>
+                </li>
+              </ul>
+            </details>
+          </div>
+        </section>
+      </div>
     </main>
 
     <ul class="footer-global">
@@ -561,22 +1227,28 @@
           chat about design.
         </p>
       </li>
-
       <li class="footer-highlights">
         <h2>Selected work</h2>
         <p><a href="project-lullaby.html">Lullaby</a></p>
         <p><a href="project-range.html">RANGE</a></p>
       </li>
-
       <li class="footer-contact-social">
-        <h2>Contact &amp; Social</h2>
+        <h2>Contact & Social</h2>
         <ul class="footer-socials-list">
           <li class="footer-item">
             <a href="https://www.instagram.com/leo_velarte_/">Instagram</a>
           </li>
+          <li class="footer-item">
+            <a
+              href="https://www.linkedin.com/in/leonardo-velazquez-chazaro-3b47b2435/"
+              >LinkedIn</a
+            >
+          </li>
+          <li class="footer-item">
+            <a href="https://www.behance.net/leonardvelazqu12">Behance</a>
+          </li>
         </ul>
       </li>
-
       <li class="footer-full-width">
         <p><a href="#top">Smooth scroll to the top</a></p>
         <p class="footer-fineprint">
@@ -586,7 +1258,6 @@
     </ul>
 
     <script>
-      // Day / Night
       const root = document.documentElement;
       const themeButton = document.getElementById("themeToggle");
       const themeLabel = themeButton.querySelector(".theme-toggle-label");
@@ -605,16 +1276,15 @@
       displayTheme(root.dataset.theme);
 
       themeButton.addEventListener("click", () => {
-        const theme = root.dataset.theme === "night" ? "day" : "night";
-        displayTheme(theme);
+        const nextTheme = root.dataset.theme === "night" ? "day" : "night";
+        displayTheme(nextTheme);
         try {
-          localStorage.setItem("portfolio-theme", theme);
+          localStorage.setItem("portfolio-theme", nextTheme);
         } catch {
-          // The theme still works for this visit.
+          // The selected theme remains active for this visit.
         }
       });
 
-      // Press Kit / YouTube
       const tabList = document.querySelector(".artist-tabs");
       const tabs = Array.from(tabList.querySelectorAll("a"));
       tabList.setAttribute("role", "tablist");
@@ -622,7 +1292,7 @@
       function selectTab(activeTab) {
         for (const tab of tabs) {
           const selected = tab === activeTab;
-          const panel = document.querySelector(tab.hash);
+          const panel = document.getElementById(tab.hash.slice(1));
           tab.setAttribute("aria-selected", String(selected));
           tab.tabIndex = selected ? 0 : -1;
           panel.hidden = !selected;
@@ -630,7 +1300,7 @@
       }
 
       for (const tab of tabs) {
-        const panel = document.querySelector(tab.hash);
+        const panel = document.getElementById(tab.hash.slice(1));
         tab.setAttribute("role", "tab");
         tab.setAttribute("aria-controls", panel.id);
         panel.setAttribute("role", "tabpanel");
@@ -638,51 +1308,59 @@
         panel.tabIndex = 0;
 
         tab.addEventListener("click", (event) => {
+          if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
+            return;
           event.preventDefault();
           selectTab(tab);
-          history.replaceState(null, "", tab.hash);
+          if (location.hash !== tab.hash) {
+            history.pushState(null, "", tab.hash);
+          }
         });
+      }
+
+      function syncTabWithUrl() {
+        const activeTab = tabs.find((tab) => tab.hash === location.hash);
+        if (activeTab) {
+          selectTab(activeTab);
+        } else if (!location.hash) {
+          selectTab(tabs[0]);
+        }
       }
 
       tabList.addEventListener("keydown", (event) => {
         const index = tabs.indexOf(document.activeElement);
-        if (index < 0) return;
+        if (index === -1) return;
 
-        let next;
+        let nextIndex;
         switch (event.key) {
           case "ArrowRight":
-            next = tabs[(index + 1) % tabs.length];
+            nextIndex = (index + 1) % tabs.length;
             break;
           case "ArrowLeft":
-            next = tabs[(index - 1 + tabs.length) % tabs.length];
+            nextIndex = (index + tabs.length - 1) % tabs.length;
             break;
           case "Home":
-            next = tabs[0];
+            nextIndex = 0;
             break;
           case "End":
-            next = tabs[tabs.length - 1];
+            nextIndex = tabs.length - 1;
             break;
           case " ":
-            event.preventDefault();
-            tabs[index].click();
-            return;
+            nextIndex = index;
+            break;
           default:
             return;
         }
 
         event.preventDefault();
-        next.focus();
-        next.click();
+        tabs[nextIndex].focus();
+        tabs[nextIndex].click();
       });
 
-      function openLinkedTab() {
-        const linkedTab = tabs.find((tab) => tab.hash === location.hash);
-        if (linkedTab) selectTab(linkedTab);
-      }
-
       selectTab(tabs[0]);
-      openLinkedTab();
-      window.addEventListener("hashchange", openLinkedTab);
+      syncTabWithUrl();
+      window.addEventListener("popstate", syncTabWithUrl);
+      window.addEventListener("hashchange", syncTabWithUrl);
 
       document.getElementById("copyright-years").textContent =
         new Date().getFullYear();

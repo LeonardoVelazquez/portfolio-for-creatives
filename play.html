@@ -16,7 +16,10 @@
       href="assets/branding-images/logo.png"
     />
     <link rel="icon" type="image/png" href="assets/branding-images/logo.png" />
-    <meta property="og:image" content="screenshot.jpg" />
+    <meta
+      property="og:image"
+      content="https://leovelazquez.com/assets/branding-images/logo.png"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
@@ -30,6 +33,7 @@
     />
     <link rel="stylesheet" href="./styles/masonry.css" />
     <link rel="stylesheet" href="./lightbox2/dist/css/lightbox.min.css" />
+    <script src="./js/portfolio-theme.js"></script>
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
 
@@ -292,42 +296,37 @@
         </p>
       </li>
       <li class="footer-highlights">
-        <h2>Awards & Recognition</h2>
-        <ul class="footer-awards-list">
-          <li class="footer-item">
-            <a href="#">Dean’s List – Year or Term</a>
-          </li>
-          <li class="footer-item">
-            <a href="#">Your Award – Name of Student Award and Year</a>
-          </li>
-          <li class="footer-item">
-            <a href="#">Honourable Mention – Project or Competition Name</a>
-          </li>
-          <li class="footer-item">
-            <a href="#">Other Recognition or Accolade</a>
-          </li>
-        </ul>
+        <h2>Selected work</h2>
+        <p><a href="project-lullaby.html">Lullaby</a></p>
+        <p><a href="project-range.html">RANGE</a></p>
       </li>
 
       <li class="footer-contact-social">
         <h2>Contact & Social</h2>
         <ul class="footer-socials-list">
-          <li class="footer-item"><a href="#">Insta</a></li>
-          <li class="footer-item"><a href="#">LinkedIn</a></li>
-          <li class="footer-item"><a href="#">Behance</a></li>
+          <li class="footer-item">
+            <a href="https://www.instagram.com/leo_velarte_/">Instagram</a>
+          </li>
         </ul>
       </li>
 
       <li class="footer-full-width">
         <p><a href="#top">Smooth scroll to the top</a></p>
         <p class="footer-fineprint">
-          &copy; <span id="copyright-years">2020-</span>. Hand crafted with
-          <span class="heart">❤</span>
-          by James Neufeld.
+          &copy; <span id="copyright-years"></span> Leonardo Velazquez.
         </p>
         <script>
-          document.getElementById("copyright-years").textContent +=
-            new Date().getFullYear();
+              document.getElementById("copyright-years").textContent +=
+          <li class="footer-full-width">
+            <p><a href="#top">Smooth scroll to the top</a></p>
+            <p class="footer-fineprint">
+              &copy; <span id="copyright-years">2020-</span>. Hand crafted with
+              <span class="heart">❤</span>
+              by James Neufeld.
+            </p>
+            <script>
+              document.getElementById("copyright-years").textContent +=
+                new Date().getFullYear();
         </script>
       </li>
     </ul>
