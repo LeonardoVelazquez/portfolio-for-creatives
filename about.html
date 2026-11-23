@@ -1,22 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>
-      Free Creative Portfolio Template: October 2025 Version | About Page
-    </title>
+    <title>About | Leonardo Velazquez</title>
     <meta
       name="description"
-      content="When writing a meta description, keep it between 140 and 160 characters so Google can display your entire message. Don’t forget to include your keyword!"
+      content="Meet Leonardo Velazquez, a Mexican designer, photographer and DJ based in Vancouver. Explore his studio portraits, nightlife artwork and artist press kit."
     />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="images/svg+xml"
-      href="assets/branding-images/logo.png"
-    />
     <link rel="icon" type="image/png" href="assets/branding-images/logo.png" />
-    <meta property="og:image" content="screenshot.jpg" />
+    <meta
+      property="og:image"
+      content="https://leovelazquez.com/assets/branding-images/logo.png"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
@@ -28,15 +24,15 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="./js/portfolio-theme.js"></script>
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
-
   <body class="about-page">
     <header class="hero-header">
       <ul class="nav-branding">
         <!-- Logo (standalone LI) -->
         <li class="nav-branding-logo">
-          <a href="index.html">
+          <a href="index.html" aria-label="Leonardo Velazquez, home">
             <svg
               id="Layer_1"
               data-name="Layer 1"
@@ -61,133 +57,101 @@
             <li class="nav-branding-item">
               <a href="play.html" class="nav-link-primary">Play</a>
             </li>
+
             <li class="nav-branding-item">
               <a href="about.html" class="nav-link-primary">About</a>
+            </li>
+            <li class="nav-branding-item">
+              <a href="press-kit.html" class="nav-link-primary">Press Kit</a>
             </li>
           </ul>
         </li>
       </ul>
     </header>
-    <ul class="about-grid">
-      <li class="about-grid-image">
-        <figure class="about-image">
-          <img
-            src="assets/portraits/leonardo-main-portrait.jpg"
-            width="1500"
-            height="1500"
-            alt="Your Photo"
-          />
-        </figure>
+    <main>
+      <ul class="about-grid">
+        <li class="about-grid-image">
+          <figure class="about-image">
+            <img
+              src="assets/portraits/leonardo-main-portrait.jpg"
+              width="1500"
+              height="1500"
+              alt="Leonardo Velazquez in profile against a dark background"
+            />
+          </figure>
+        </li>
+        <li class="about-grid-text">
+          <h1>Hey! Didn’t see you there 👀</h1>
+          <p>
+            I’m Leo, a Mexican designer and artist based in Vancouver. Most
+            weeks you’ll find me pushing type around a poster, taking portraits,
+            or digging for records for my next set as Garfield Discotheque.
+          </p>
+          <p>
+            Music got me designing for people I knew on the dance floor. I still
+            love that part of the work: finding the small detail that makes
+            someone say, “That feels like us.”
+          </p>
+          <p><a href="press-kit.html">Meet Garfield Discotheque →</a></p>
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to night mode"
+            aria-pressed="false"
+          >
+            <span class="theme-toggle-label">Day</span>
+            <span class="theme-toggle-knob"></span>
+          </button>
+        </li>
+      </ul>
+    </main>
+    <ul class="footer-global">
+      <li class="footer-tagline">
+        <h2>Let's Connect!</h2>
+        <p>
+          Feel free to reach out with any questions, collaborations, or just to
+          chat about design.
+        </p>
+
+        <p class="phrase">
+          <span id="phraseChange"></span>
+        </p>
       </li>
-      <li class="about-grid-text">
-        <h2>Hey! Didn't see u there 👀</h2>
+      <li class="footer-highlights">
+        <h2>Selected work</h2>
+        <p><a href="project-lullaby.html">Lullaby</a></p>
+        <p><a href="project-range.html">RANGE</a></p>
+      </li>
 
-        <p>
-          My name is Leonardo Velazquez and I’m a designer and artist who loves
-          building strong visual identities, experimenting with typography, and
-          creating designs that feel alive. My work reflects both my Mexican
-          roots and my passion for music, art, and culture. I push myself to
-          keep growing, finding ways to connect creativity with strategy and
-          turn ideas into experiences people remember.
+      <li class="footer-contact-social">
+        <h2>Contact & Social</h2>
+        <ul class="footer-socials-list">
+          <li class="footer-item">
+            <a href="https://www.instagram.com/leo_velarte_/">Instagram</a>
+          </li>
+          <li class="footer-item">
+            <a
+              href="https://www.linkedin.com/in/leonardo-velazquez-chazaro-3b47b2435/"
+              >LinkedIn</a
+            >
+          </li>
+          <li class="footer-item">
+            <a href="https://www.behance.net/leonardvelazqu12">Behance</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="footer-full-width">
+        <p><a href="#top">Smooth scroll to the top</a></p>
+        <p class="footer-fineprint">
+          &copy; <span id="copyright-years">2025-</span> by Leonardo Velazquez.
         </p>
-        <p>Press kit</p>
-
-        <h3>Testimonials</h3>
-
-        <p>
-          “He is extremly Sexy and has great Design skills. He's also very a
-          very good kisser” —
-          <a href="https://solyoon.me/" target="_blank">Margot Robbie</a>
-        </p>
-
-        <p>
-          “I ran out of gas once and he let me keep his car for a week. Legend.”
-          —
-          <a href="https://lilyrosen.ca/" target="_blank">Elon Musk</a>
-        </p>
-
-        <p>
-          “I asked him for the AUX once, and now I open for him.” —
-          <a href="https://jacobchong.com/" target="_blank">Fred again</a>
-        </p>
-
-        <p>
-          “He once redesigned my tour visuals in the middle of the night just
-          because ‘the energy felt wrong.’ That’s art.” —
-          <a href="https://emmado.com/" target="_blank">Charli XCX</a>
-        </p>
-
-        <p>
-          “He redesigned my résumé and suddenly I had a personality.” —
-          <a href="https://shrutikarthikeyan.com/" target="_blank"
-            >Steve Jobs’ Ghost</a
-          >
-        </p>
-
-        <p>
-          “He made a brand guideline so sexy I blushed while reading it.” —
-          <a href="https://angelicablanch.com/" target="_blank">Gucci</a>
-        </p>
-
-        <p>
-          “He fixed my alignment and my self-esteem.” —
-          <a href="https://carmenhuang.com/" target="_blank"
-            >Adobe InDesign support rep</a
-          >
-        </p>
-
-        <p>
-          “His flyer designs have sent more people to parties than Eventbrite
-          ever did.” —
-          <a href="https://melcreative.ca/" target="_blank"
-            >The New York Times</a
-          >
-        </p>
+        <script>
+          document.getElementById("copyright-years").textContent +=
+            new Date().getFullYear();
+        </script>
       </li>
     </ul>
-    <footer>
-      <div class="top_header">
-        <section>
-          <span><i class="fa fa-map-marker"></i></span>
-          <span>6456 E Cordova, Vancouver BC B5K2D3</span>
-        </section>
-        <section>
-          <span><i class="fa fa-phone"></i></span>
-          <span>(1) 778 318 3554</span>
-        </section>
-        <section>
-          <span><i class="fa fa-envelope"></i></span>
-          <span>leonardovelazquezcha@capu.com</span>
-        </section>
-      </div>
-      <span class="border-shape"></span>
-      <div class="bottom_content">
-        <section>
-          <a href="https://www.facebook.com/">
-            <i class="fa-brands fa-facebook"></i
-          ></a>
-          <a href="https://www.instagram.com/leo_velarte_/">
-            <i class="fa-brands fa-instagram"></i
-          ></a>
-          <a href="https://www.instagram.com/leo_velarte_/">
-            <i class="fa-brands fa-twitter"></i
-          ></a>
-          <a href="https://web.telegram.org/k/">
-            <i class="fa-brands fa-telegram"></i
-          ></a>
-        </section>
-        <section>
-          <a href="#">Home</a>
-          <a href="#">About us</a>
-          <a href="#">Order</a>
-          <a href="404.html">404</a>
-          <a href="#">Member</a>
-          <a href="#">Contact Us</a>
-        </section>
-      </div>
-      <div class="copyright">
-        Copyright © 2025 Leonardo Velazquez - All rights reserved
-      </div>
-    </footer>
   </body>
 </html>

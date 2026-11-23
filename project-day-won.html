@@ -1,18 +1,24 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>
-      Free Creative Portfolio Template: October 2025 Version | Project Page
+      Day Won — Wellness App &amp; Brand Identity | Leonardo Velazquez
     </title>
     <meta
       name="description"
-      content="When writing a meta description, keep it between 140 and 160 characters so Google can display your entire message. Don’t forget to include your keyword!"
+      content="Day Won is a wellness app and brand identity by Leonardo Velazquez. Explore the onboarding, colour system, therapy matcher, breath work and poster campaign."
     />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      property="og:image"
+      content="https://leovelazquez.com/assets/day-won/leonardo-velazquez-day-won-ui-ux-wellness-app.jpg"
+    />
+
     <link
       rel="icon"
-      type="images/svg+xml"
+      type="image/svg+xml"
       href="assets/branding-images/favicon.svg"
     />
     <link
@@ -20,342 +26,536 @@
       type="image/png"
       href="assets/branding-images/favicon.png"
     />
-    <meta property="og:image" content="screenshot.jpg" />
+
+    <script src="./js/portfolio-theme.js"></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <link rel="stylesheet" href="./styles/style.css" />
+
+    <style>
+      /* Day Won case study */
+      .day-won-page .project-wrapper {
+        color: var(--theme-text);
+        background-color: var(--theme-bg);
+      }
+
+      .day-won-page .project-aside,
+      .day-won-page .project-details {
+        min-width: 0;
+        box-sizing: border-box;
+      }
+
+      .day-won-page .theme-toggle {
+        min-height: 44px;
+        margin-block: 1rem 1.5rem;
+        touch-action: manipulation;
+      }
+
+      .day-won-facts {
+        display: grid;
+        gap: 0.8rem;
+        margin-block: 1.5rem;
+      }
+
+      .day-won-facts dt {
+        font-weight: 700;
+      }
+
+      .day-won-facts dd {
+        margin: 0.2rem 0 0;
+        line-height: 1.45;
+      }
+
+      .day-won-section {
+        margin-block: clamp(2.5rem, 6vw, 5rem);
+      }
+
+      .day-won-copy {
+        max-width: 62ch;
+        margin-bottom: 1.25rem;
+      }
+
+      .day-won-copy h2 {
+        margin: 0 0 0.65rem;
+        color: inherit;
+        line-height: 1.1;
+      }
+
+      .day-won-copy p {
+        margin: 0 0 0.8rem;
+        color: inherit;
+        line-height: 1.6;
+      }
+
+      .day-won-page .project-details figure {
+        display: block;
+        width: 100%;
+        margin: 0;
+      }
+
+      .day-won-page .project-details img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .day-won-gallery {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .day-won-page .project-navigation {
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .day-won-page .navigation-arrow {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+      }
+
+      .day-won-page .nav-branding-group {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      /* Keep interface screens large enough to read.
+         Only the two outdoor mockups sit side by side on wide screens. */
+      @media (min-width: 1200px) {
+        .day-won-gallery--posters {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 991px) {
+        .day-won-page .project-wrapper {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .day-won-page .project-aside,
+        .day-won-page .project-details {
+          position: static;
+          width: 100%;
+          height: auto;
+          max-height: none;
+          overflow: visible;
+        }
+      }
+    </style>
   </head>
 
-  <body class="project-1">
+  <body id="top" class="project-1 portfolio-project day-won-page">
     <header class="hero-header">
-      <ul class="nav-branding">
-        <!-- Logo (standalone LI) -->
-        <li class="nav-branding-logo">
-          <a href="index.html">
-            <svg
-              id="Layer_1"
-              data-name="Layer 1"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 242.7 280.15"
-              class="logo"
-            >
-              <path
-                d="M236.92,110.63c-10.87-41.16-36.57-74.72-72.36-94.49C126.88-4.7,85.03-5.39,49.74,14.27,20.48,30.56,1.43,58.65.01,87.52c-.31,5.92,4.25,10.98,10.21,11.26.17,0,.36.03.53.03,5.7,0,10.46-4.48,10.73-10.23,1.06-21.52,15.91-42.8,38.74-55.53,28.64-15.96,62.88-15.27,93.94,1.89,39.24,21.69,55.37,56.12,61.99,81.17,8.4,31.84,6.31,66.38-5.76,94.69-7.79,18.27-19.08,32.15-32.62,40.16-14.49,8.54-30.98,10.01-49.03,4.42-14.52-4.51-23.22-13.85-26.61-28.59-.64-2.78-1.03-5.51-1.22-8.06,4.12-.14,9.32-.47,14.79-1.17,18.77-2.36,30.95-7.56,37.18-15.88,4.56-6.03,5.73-13.63,3.28-21.33-6.15-19.36-21.64-30.23-39.49-27.7-9.82,1.39-18.85,6.84-25.5,15.35-6.17,7.93-9.9,17.99-10.85,29.34h-45.44v-78.78c0-5.95-4.81-10.76-10.73-10.76s-10.76,4.81-10.76,10.76v100.28h65.96c.25,3.73.72,7.76,1.64,11.96,4.95,22.66,19.27,38.27,41.38,45.11,9.2,2.86,18.21,4.25,26.95,4.25,34.46,0,64.16-21.75,80.84-60.93,13.9-32.62,16.38-72.22,6.76-108.59ZM119.7,173.92c.61-.08,1.22-.11,1.84-.11,6.31,0,11.51,4.73,14.13,13.04.44,1.36.22,1.67.06,1.92-3.48,4.59-18.91,7.7-33.79,8.45,1.84-14.52,10.15-22.22,17.77-23.3Z"
-              />
-              <path
-                d="M69.56,115.37c-13.72,0-24.88-11.16-24.88-24.88s11.16-24.88,24.88-24.88,24.88,11.16,24.88,24.88-11.16,24.88-24.88,24.88ZM69.56,84.42c-3.35,0-6.07,2.72-6.07,6.07s2.72,6.07,6.07,6.07,6.07-2.72,6.07-6.07-2.72-6.07-6.07-6.07Z"
-              />
-            </svg>
-          </a>
-        </li>
-        <li class="nav-branding-item">
-          <ul class="nav-branding-group">
-            <li class="nav-branding-item">
-              <a href="work.html" class="nav-link-primary">Work</a>
-            </li>
-            <li class="nav-branding-item">
-              <a href="play.html" class="nav-link-primary">Play</a>
-            </li>
-            <li class="nav-branding-item">
-              <a href="about.html" class="nav-link-primary">About</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </header>
-    <div class="project-wrapper">
-      <aside class="project-aside">
-        <div class="project-info">
-          <h1 class="project-title">Capstone</h1>
-          <p class="project-description">
-            Day Won is a wellness brand built to help people take control of
-            their days, one step at a time to improve their mental health. The
-            focus is on productivity, mental health, and daily balance. Using
-            tools like goal tracking, therapy matching, journaling, and breath
-            work.
-          </p>
-          <p class="project-description">
-            The <strong>design language</strong> relies on a clean, simple feel.
-            Making the app approachable without feeling “cheesy.” Day Won is
-            about building momentum: small daily wins that add up to real
-            change.
-          </p>
-        </div>
-        <ul class="project-navigation">
-          <li class="arrow">
-            <a href="project-3.html" class="navigation-arrow"
-              ><i class="fa-sharp fa-solid fa-arrow-left fa-2x"></i
-            ></a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-branding">
+          <li class="nav-branding-logo">
+            <a href="index.html" aria-label="Leonardo Velazquez, home">
+              <svg
+                id="Layer_1"
+                data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 242.7 280.15"
+                class="logo"
+                aria-hidden="true"
+              >
+                <path
+                  d="M236.92,110.63c-10.87-41.16-36.57-74.72-72.36-94.49C126.88-4.7,85.03-5.39,49.74,14.27,20.48,30.56,1.43,58.65.01,87.52c-.31,5.92,4.25,10.98,10.21,11.26.17,0,.36.03.53.03,5.7,0,10.46-4.48,10.73-10.23,1.06-21.52,15.91-42.8,38.74-55.53,28.64-15.96,62.88-15.27,93.94,1.89,39.24,21.69,55.37,56.12,61.99,81.17,8.4,31.84,6.31,66.38-5.76,94.69-7.79,18.27-19.08,32.15-32.62,40.16-14.49,8.54-30.98,10.01-49.03,4.42-14.52-4.51-23.22-13.85-26.61-28.59-.64-2.78-1.03-5.51-1.22-8.06,4.12-.14,9.32-.47,14.79-1.17,18.77-2.36,30.95-7.56,37.18-15.88,4.56-6.03,5.73-13.63,3.28-21.33-6.15-19.36-21.64-30.23-39.49-27.7-9.82,1.39-18.85,6.84-25.5,15.35-6.17,7.93-9.9,17.99-10.85,29.34h-45.44v-78.78c0-5.95-4.81-10.76-10.73-10.76s-10.76,4.81-10.76,10.76v100.28h65.96c.25,3.73.72,7.76,1.64,11.96,4.95,22.66,19.27,38.27,41.38,45.11,9.2,2.86,18.21,4.25,26.95,4.25,34.46,0,64.16-21.75,80.84-60.93,13.9-32.62,16.38-72.22,6.76-108.59ZM119.7,173.92c.61-.08,1.22-.11,1.84-.11,6.31,0,11.51,4.73,14.13,13.04.44,1.36.22,1.67.06,1.92-3.48,4.59-18.91,7.7-33.79,8.45,1.84-14.52,10.15-22.22,17.77-23.3Z"
+                />
+                <path
+                  d="M69.56,115.37c-13.72,0-24.88-11.16-24.88-24.88s11.16-24.88,24.88-24.88,24.88,11.16,24.88,24.88-11.16,24.88-24.88,24.88ZM69.56,84.42c-3.35,0-6.07,2.72-6.07,6.07s2.72,6.07,6.07,6.07,6.07-2.72,6.07-6.07-2.72-6.07-6.07-6.07Z"
+                />
+              </svg>
+            </a>
           </li>
-          <li class="arrow">
-            <a href="project-invisible-labour.html" class="navigation-arrow"
-              ><i class="fa-sharp fa-solid fa-arrow-right fa-2x"></i
-            ></a>
+
+          <li class="nav-branding-item">
+            <ul class="nav-branding-group">
+              <li class="nav-branding-item">
+                <a href="work.html" class="nav-link-primary">Work</a>
+              </li>
+              <li class="nav-branding-item">
+                <a href="play.html" class="nav-link-primary">Play</a>
+              </li>
+              <li class="nav-branding-item">
+                <a href="about.html" class="nav-link-primary">About</a>
+              </li>
+              <li class="nav-branding-item">
+                <a href="press-kit.html" class="nav-link-primary">Press Kit</a>
+              </li>
+            </ul>
           </li>
         </ul>
+      </nav>
+    </header>
+
+    <div class="project-wrapper">
+      <aside class="project-aside" aria-labelledby="project-title">
+        <div class="project-info">
+          <h1 id="project-title" class="project-title">Day Won</h1>
+
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to night mode"
+            aria-pressed="false"
+          >
+            <span class="theme-toggle-label">Day</span>
+            <span class="theme-toggle-knob" aria-hidden="true"></span>
+          </button>
+
+          <p class="project-description">
+            What counts as a win on a difficult day? For Day Won, it might be
+            taking a minute to breathe, noticing a pattern in your week, or
+            making a first move toward therapy. I designed a wellness brand and
+            app concept around those small decisions.
+          </p>
+
+          <dl class="day-won-facts">
+            <div>
+              <dt>My role</dt>
+              <dd>Brand identity, UX/UI design and campaign artwork</dd>
+            </div>
+            <div>
+              <dt>Audience</dt>
+              <dd>Students, young adults and people with stressful routines</dd>
+            </div>
+            <div>
+              <dt>Course</dt>
+              <dd>Branded Web Experience</dd>
+            </div>
+            <div>
+              <dt>Instructor</dt>
+              <dd>Chelsea Bell Eady</dd>
+            </div>
+            <div>
+              <dt>Timeline</dt>
+              <dd>6 weeks</dd>
+            </div>
+          </dl>
+        </div>
+
+        <nav aria-label="Project navigation">
+          <ul class="project-navigation">
+            <li>
+              <a
+                class="navigation-arrow"
+                href="project-fruition.html"
+                aria-label="Previous project: Fruition Movement"
+              >
+                ← Previous
+              </a>
+            </li>
+            <li>
+              <a
+                class="navigation-arrow"
+                href="project-invisible-labour.html"
+                aria-label="Next project: Invisible Labour"
+              >
+                Next →
+              </a>
+            </li>
+          </ul>
+        </nav>
       </aside>
-      <main class="project-details">
+
+      <main class="project-details" aria-label="Day Won case study">
         <figure class="project-image">
           <img
             src="assets/day-won/leonardo-velazquez-day-won-ui-ux-wellness-app.jpg"
             width="1900"
             height="1500"
-            loading="lazy"
-            alt="Describe your project"
+            class="rounded-small"
+            fetchpriority="high"
+            alt="Day Won interface overview showing onboarding, colour selection, activity tracking and wellness tools."
           />
         </figure>
-        <section class="full-width-section">
-          <div class="full-width-headline-wrapper">
-            <h1 class="h1-full-width">Day Won</h1>
-            <p class="p-full-width">
-              <strong>Problem Statement </strong>
-              Young adults often lack access to affordable, stigma-free mental
-              health resources. There is a need for an interactive platform
-              offering guidance and community support.
-            </p>
-            <p class="p-full-width">
-              <strong>Digital Solution</strong>
 
-              Day Won is an interactive app offering self-assessment tools with
-              personalized mindfulness exercises.
+        <section class="day-won-section">
+          <div class="day-won-copy">
+            <h2>A brand for the days that get away from you</h2>
+            <p>
+              The challenge was to design something people could use when their
+              day already felt full. I started with a simple question: if
+              someone opened Day Won between classes or after a long shift, what
+              would feel manageable in that moment? That question shaped both
+              the tone of the brand and the tools I gave space to on the home
+              screen.
+            </p>
+            <p>
+              I chose blue as the starting colour because I wanted the identity
+              to feel calm and dependable. The circular mark, soft shadows and
+              raised surfaces carry through into the app. Neumorphism gave the
+              controls a gentle sense of depth, while the restrained palette
+              leaves room for a single accent to draw the eye.
             </p>
           </div>
+
+          <figure class="project-image">
+            <img
+              src="assets/day-won/brand guide.jpg"
+              width="1920"
+              height="1080"
+              class="rounded-small"
+              loading="lazy"
+              alt="Day Won brand guide with circular logo variations, a blue and grey colour palette, and type specimens."
+            />
+          </figure>
         </section>
-        <div class="project-description-container">
-          <div class="project-title col-2">
-            <h2>Brand Guide</h2>
-            <h3>
-              I chose to use <strong>Neumorphism design</strong> because it
-              gives a clean and simple visual language that feels modern yet
-              easy to navigate.
-            </h3>
-          </div>
-          <div class="project-description col-2">
-            <p>
-              Soft shadows and minimal style reduce clutter, making the
-              interface more approachable.
-            </p>
-            <p>
-              I decided on blue as my main brand color since it conveys trust,
-              professionalism, and a medical tone, clear and reliable rather
-              than playful or cheesy.
-            </p>
-          </div>
-        </div>
-        <figure class="project-image">
-          <img
-            src="assets/day-won/brand guide.jpg"
-            width="1920"
-            height="1080"
-            loading="lazy"
-            alt="Describe your project"
-          />
-        </figure>
-        <figure class="project-image">
-          <img
-            src="assets/day-won/welcome.jpg"
-            width="1920"
-            height="1080"
-            loading="lazy"
-            alt="Describe your project"
-          />
-        </figure>
-        <div class="project-description-container">
-          <div class="project-title col-2">
-            <h2>Colours</h2>
 
-            <div class="project-description col-2">
-              <p>
-                Give the user the opportunity to personalize their experience by
-                choosing their favourite colour
-              </p>
-            </div>
+        <section class="day-won-section">
+          <div class="day-won-copy">
+            <h2>The first few screens</h2>
+            <p>
+              Onboarding introduces the app in a short sequence. Each screen
+              gives one idea room to breathe. The circular graphic from the
+              brand guide becomes a familiar reference as someone moves from the
+              welcome screen toward their first check-in.
+            </p>
           </div>
-          <div class="project-image-container">
+
+          <figure class="project-image">
+            <img
+              src="assets/day-won/welcome.jpg"
+              width="1920"
+              height="1080"
+              class="rounded-small"
+              loading="lazy"
+              alt="Five onboarding screens showing how Day Won introduces its features to a first-time user."
+            />
+          </figure>
+        </section>
+
+        <section class="day-won-section">
+          <div class="day-won-copy">
+            <h2>A colour that feels like yours</h2>
+            <p>
+              Blue establishes the brand, but someone using Day Won every day
+              can choose their own accent colour. I designed a colour wheel for
+              that choice and kept the layout consistent as the accent changes.
+              The light and dark studies show how the same preference can carry
+              across different backgrounds.
+            </p>
+          </div>
+
+          <div class="day-won-gallery">
             <figure class="project-image">
               <img
                 src="assets/day-won/colour-1.jpg"
                 width="1920"
                 height="1080"
+                class="rounded-small"
                 loading="lazy"
-                alt="Describe your project"
+                alt="Day Won colour wheel beside two light-mode screens for selecting an interface accent."
               />
             </figure>
+
             <figure class="project-image">
               <img
                 src="assets/day-won/colour-2.jpg"
                 width="1920"
                 height="1080"
+                class="rounded-small"
                 loading="lazy"
-                alt="Describe your project"
+                alt="Three phone screens comparing accent colours on light and dark backgrounds."
               />
             </figure>
           </div>
-          <div class="project-description-container">
-            <div class="project-title col-2">
-              <h2>Home Page & Features</h2>
-            </div>
-            <div class="project-description col-2">
-              <p>
-                Day Won’s home page provides a calm dashboard of mood, goals,
-                and recent wins. The therapy matcher connects users with
-                compatible mental health professionals. Breath work offers
-                guided exercises with soothing visuals to reduce stress. The
-                productivity tracker monitors habits, work sessions, and energy
-                levels, turning progress into gentle self-reflection.
-              </p>
-            </div>
+        </section>
+
+        <section class="day-won-section">
+          <div class="day-won-copy">
+            <h2>What the home screen brings together</h2>
+            <p>
+              The dashboard gives mood, goals and recent activity a shared home.
+              A quick check-in makes sense on a busy day. The calendar and
+              charts offer a longer view when someone wants to look back over
+              the week. I used the same accent colour across those views so that
+              a date, a selected control and a point of progress feel related.
+            </p>
           </div>
+
           <figure class="project-image">
             <img
               src="assets/day-won/home.jpg"
               width="1920"
               height="1080"
+              class="rounded-small"
               loading="lazy"
-              alt="Describe your project"
+              alt="Four Day Won dashboard screens featuring a calendar, activity history and progress charts."
             />
           </figure>
-          <div class="project-image-container">
-            <figure class="project-image">
-              <img
-                src="assets/day-won/theraphy.jpg"
-                width="1920"
-                height="1080"
-                loading="lazy"
-                alt="Describe your project"
-              />
-            </figure>
+        </section>
+
+        <section class="day-won-section">
+          <div class="day-won-copy">
+            <h2>Therapy Matcher</h2>
+            <p>
+              Looking for a therapist can begin with a surprisingly difficult
+              question: what am I looking for? In this concept, the matcher
+              starts with the person’s needs and preferences. Their answers give
+              the app a starting point for suggesting therapists and give the
+              person a way to put into words what kind of support they want.
+            </p>
           </div>
-          <div class="project-image-container">
-            <figure class="project-image">
-              <img
-                src="assets/day-won/breathwork.jpg"
-                width="1920"
-                height="1080"
-                loading="lazy"
-                alt="Describe your project"
-              />
-            </figure>
-          </div>
-          <div class="project-description-container">
-            <div class="project-title col-2">
-              <h2>Add Campain</h2>
-            </div>
-            <div class="project-description col-2">
-              <p>
-                The ad campaign reinforces the app’s core idea: repetition is
-                success. Through bold visuals and clean typography, the posters
-                highlight daily progress and self-care as habits worth
-                celebrating.
-              </p>
-            </div>
-          </div>
+
           <figure class="project-image">
             <img
-              src="assets/day-won/ads.jpg"
+              src="assets/day-won/theraphy.jpg"
               width="1920"
               height="1080"
+              class="rounded-small"
               loading="lazy"
-              alt="Describe your project"
+              alt="Therapy Matcher concept showing the feature introduction and a phone screen with preference questions."
             />
           </figure>
-          <div class="project-image-container">
-            <figure class="project-image">
-              <img
-                src="assets/day-won/mock-up1.jpg"
-                width="1920"
-                height="1080"
-                loading="lazy"
-                alt="Describe your project"
-              />
-            </figure>
-            <figure class="project-image">
-              <img
-                src="assets/day-won/mock-up2.jpg"
-                width="1920"
-                height="1080"
-                loading="lazy"
-                alt="Describe your project"
-              />
-            </figure>
+        </section>
+
+        <section class="day-won-section">
+          <div class="day-won-copy">
+            <h2>Breath Work</h2>
+            <p>
+              Breath Work serves a different moment. Someone can open it, choose
+              a session and follow a guided breathing exercise. Adjustable
+              sessions and audio guidance give them control over the experience.
+              The progress view makes it possible to return later and see when
+              they’ve made time for a session.
+            </p>
           </div>
-        </div>
+
+          <figure class="project-image">
+            <img
+              src="assets/day-won/breathwork.jpg"
+              width="1920"
+              height="1080"
+              class="rounded-small"
+              loading="lazy"
+              alt="Three mobile screens from the Day Won Breath Work feature."
+            />
+          </figure>
+        </section>
+
+        <section class="day-won-section">
+          <div class="day-won-copy">
+            <h2>Taking Day Won into the street</h2>
+            <p>
+              On a phone, a person has already chosen to open the app. A poster
+              has to earn a glance from someone on their way somewhere else. I
+              kept the campaign headlines short and used everyday imagery,
+              including a cup of coffee, to connect the idea of a daily win to a
+              moment people already recognise.
+            </p>
+            <p>
+              The street-sign mockups let me compare two kinds of encounter: a
+              poster seen in passing along a path, and one seen outside a
+              building where someone might stop. In both, the headline carries
+              the first read and the Day Won identity signs off below.
+            </p>
+          </div>
+
+          <div class="day-won-gallery">
+            <figure class="project-image">
+              <img
+                src="assets/day-won/ads.jpg"
+                width="1920"
+                height="1080"
+                class="rounded-small"
+                loading="lazy"
+                alt="Four Day Won poster designs combining short headlines, everyday imagery and a consistent brand signature."
+              />
+            </figure>
+
+            <div class="day-won-gallery day-won-gallery--posters">
+              <figure class="project-image">
+                <img
+                  src="assets/day-won/mock-up1.jpg"
+                  width="1920"
+                  height="1080"
+                  class="rounded-small"
+                  loading="lazy"
+                  alt="Day Won poster mockup on a freestanding display beside a tree-lined path."
+                />
+              </figure>
+
+              <figure class="project-image">
+                <img
+                  src="assets/day-won/mock-up2.jpg"
+                  width="1920"
+                  height="1080"
+                  class="rounded-small"
+                  loading="lazy"
+                  alt="Coffee-themed Day Won poster on a freestanding display outside a glass-fronted building."
+                />
+              </figure>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
+
     <div id="myID" class="bottomMenu hide">
-      <a href="project-invisible-labour.html">Next Project</a>
+      <a href="project-invisible-labour.html"
+        >Next project: Invisible Labour →</a
+      >
     </div>
 
+    <footer aria-label="Site footer">
+      <ul class="footer-global">
+        <li class="footer-tagline">
+          <h2>Let’s connect!</h2>
+          <p>
+            Feel free to reach out with any questions, collaborations, or just
+            to chat about design.
+          </p>
+        </li>
+
+        <li class="footer-highlights">
+          <h2>Selected work</h2>
+          <p><a href="project-lullaby.html">Lullaby</a></p>
+          <p><a href="project-range.html">RANGE</a></p>
+        </li>
+
+        <li class="footer-contact-social">
+          <h2>Contact &amp; Social</h2>
+          <ul class="footer-socials-list">
+            <li class="footer-item">
+              <a href="https://www.instagram.com/leo_velarte_/">Instagram</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="footer-full-width">
+          <p><a href="#top">Back to top ↑</a></p>
+          <p class="footer-fineprint">
+            &copy; <span id="copyright-years"></span> Leonardo Velazquez.
+          </p>
+        </li>
+      </ul>
+    </footer>
+
     <script>
-      myID = document.getElementById("myID");
+      const nextProjectMenu = document.getElementById("myID");
 
-      var myScrollFunc = function () {
-        var y = window.scrollY;
-        if (y >= 800) {
-          myID.className = "bottomMenu show";
-        } else {
-          myID.className = "bottomMenu hide";
-        }
-      };
+      function updateNextProjectMenu() {
+        const visible = window.scrollY >= 800;
+        nextProjectMenu.classList.toggle("show", visible);
+        nextProjectMenu.classList.toggle("hide", !visible);
+        nextProjectMenu.inert = !visible;
+      }
 
-      window.addEventListener("scroll", myScrollFunc);
+      updateNextProjectMenu();
+      window.addEventListener("scroll", updateNextProjectMenu, {
+        passive: true,
+      });
+
+      document.getElementById("copyright-years").textContent =
+        new Date().getFullYear();
     </script>
-    <ul class="footer-global">
-      <li class="footer-tagline">
-        <h2>Let's Connect!</h2>
-        <p>
-          Feel free to reach out with any questions, collaborations, or just to
-          chat about design.
-        </p>
-      </li>
-      <li class="footer-highlights">
-        <h2>Awards & Recognition</h2>
-        <ul class="footer-awards-list">
-          <li class="footer-item">
-            <a href="#">Dean’s List – Year or Term</a>
-          </li>
-          <li class="footer-item">
-            <a href="#">Your Award – Name of Student Award and Year</a>
-          </li>
-          <li class="footer-item">
-            <a href="#">Honourable Mention – Project or Competition Name</a>
-          </li>
-          <li class="footer-item">
-            <a href="#">Other Recognition or Accolade</a>
-          </li>
-        </ul>
-      </li>
-
-      <li class="footer-contact-social">
-        <h2>Contact & Social</h2>
-        <ul class="footer-socials-list">
-          <li class="footer-item"><a href="#">Insta</a></li>
-          <li class="footer-item"><a href="#">LinkedIn</a></li>
-          <li class="footer-item"><a href="#">Behance</a></li>
-        </ul>
-      </li>
-
-      <li class="footer-full-width">
-        <p><a href="#top">Smooth scroll to the top</a></p>
-        <p class="footer-fineprint">
-          &copy; <span id="copyright-years">2020-</span>. Hand crafted with
-          <span class="heart">❤</span>
-          by James Neufeld.
-        </p>
-        <script>
-          document.getElementById("copyright-years").textContent +=
-            new Date().getFullYear();
-        </script>
-      </li>
-    </ul>
   </body>
 </html>

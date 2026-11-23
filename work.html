@@ -1,20 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Leo Velazquez</title>
+    <title>Work | Leonardo Velazquez</title>
     <meta
       name="description"
-      content="When writing a meta description, keep it between 140 and 160 characters so Google can display your entire message. Don’t forget to include your keyword!"
+      content="Selected projects in visual identity, editorial design, UX/UI, photography and nightlife by Vancouver-based Mexican designer Leonardo Velazquez."
     />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="images/svg+xml"
-      href="assets/branding-images/logo.png"
-    />
     <link rel="icon" type="image/png" href="assets/branding-images/logo.png" />
-    <meta property="og:image" content="screenshot.jpg" />
+    <meta
+      property="og:image"
+      content="https://leovelazquez.com/assets/branding-images/logo.png"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
@@ -26,6 +24,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="./js/portfolio-theme.js"></script>
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
 
@@ -35,7 +34,7 @@
         <ul class="nav-branding">
           <!-- Logo (standalone LI) -->
           <li class="nav-branding-logo">
-            <a href="index.html">
+            <a href="index.html" aria-label="Leonardo Velazquez, home">
               <svg
                 id="Layer_1"
                 data-name="Layer 1"
@@ -109,7 +108,11 @@
       <section class="portfolio">
         <ul class="grid">
           <li class="work-page-grid-item project-container rounded-small">
-            <a href="project-3.html" class="margin-bottom">
+            <a
+              aria-label="View RANGE — Top 50 Canadian Albums of 2025"
+              href="project-range.html"
+              class="margin-bottom"
+            >
               <figure>
                 <img
                   src="assets/project-overviews/range-project-overview-leonardo-velazquez.jpg"
@@ -117,21 +120,27 @@
                   height="1500"
                   class="rounded-small"
                   loading="lazy"
-                  alt="Describe your project"
+                  alt="RANGE — Top 50 Canadian Albums of 2025"
                 />
               </figure>
             </a>
-            <a href="project-3.html">
+            <a href="project-range.html">
               <div class="project-details-overlay rounded-small">
-                <h2 class="work-grid-project-title">Range Top 50</h2>
+                <h2 class="work-grid-project-title">
+                  RANGE — Top 50 Canadian Albums of 2025
+                </h2>
                 <h4 class="work-grid-project-category">
-                  Branding &amp; Collaboration
+                  Editorial &amp; Motion Design
                 </h4>
               </div>
             </a>
           </li>
           <li class="work-page-grid-item project-container rounded-small">
-            <a href="project-3.html" class="margin-bottom">
+            <a
+              aria-label="View Day Won"
+              href="project-day-won.html"
+              class="margin-bottom"
+            >
               <figure>
                 <img
                   src="assets/project-overviews/day-won-project-overview-leonardo-velazquez.jpg"
@@ -139,20 +148,26 @@
                   height="1500"
                   class="rounded-small"
                   loading="lazy"
-                  alt="Describe your project"
+                  alt="Day Won"
                 />
               </figure>
             </a>
-            <a href="project-3.html">
+            <a href="project-day-won.html">
               <div class="project-details-overlay rounded-small">
                 <h2 class="work-grid-project-title">Day Won</h2>
-                <h4 class="work-grid-project-category">Branding &amp; Ux Ui</h4>
+                <h4 class="work-grid-project-category">
+                  Wellness &amp; Brand Identity
+                </h4>
               </div>
             </a>
           </li>
 
           <li class="work-page-grid-item project-container rounded-small">
-            <a href="project-3.html" class="margin-bottom">
+            <a
+              aria-label="View Invisible Labour"
+              href="project-invisible-labour.html"
+              class="margin-bottom"
+            >
               <figure>
                 <img
                   src="assets/project-overviews/invisible-labour-project-overview.jpg"
@@ -160,19 +175,25 @@
                   height="1080"
                   class="rounded-small"
                   loading="lazy"
-                  alt="Describe your project"
+                  alt="Invisible Labour"
                 />
               </figure>
             </a>
-            <a href="project-3.html">
+            <a href="project-invisible-labour.html">
               <div class="project-details-overlay rounded-small">
                 <h2 class="work-grid-project-title">Invisible Labour</h2>
-                <h4 class="work-grid-project-category">Branding &amp; Ux Ui</h4>
+                <h4 class="work-grid-project-category">
+                  Accessibility &amp; UX/UI
+                </h4>
               </div>
             </a>
           </li>
           <li class="work-page-grid-item project-container rounded-small">
-            <a href="project-day-won.html" class="margin-bottom">
+            <a
+              aria-label="View Fruition Movement"
+              href="project-fruition.html"
+              class="margin-bottom"
+            >
               <figure>
                 <img
                   src="assets/project-overviews/fruition-movement-project-overview-leonardo-velazquez.jpg"
@@ -180,19 +201,25 @@
                   height="1080"
                   class="rounded-small"
                   loading="lazy"
-                  alt="Describe your project"
+                  alt="Fruition Movement"
                 />
               </figure>
             </a>
-            <a href="project-day-won.html">
+            <a href="project-fruition.html">
               <div class="project-details-overlay rounded-small">
                 <h2 class="work-grid-project-title">Fruition Movement</h2>
-                <h4 class="work-grid-project-category">Fine Art</h4>
+                <h4 class="work-grid-project-category">
+                  Inclusive Fitness &amp; UX/UI
+                </h4>
               </div>
             </a>
           </li>
           <li class="work-page-grid-item project-container rounded-small">
-            <a href="project-day-won.html" class="margin-bottom">
+            <a
+              aria-label="View V.PM"
+              href="project-vpm.html"
+              class="margin-bottom"
+            >
               <figure>
                 <img
                   src="assets/project-overviews/v.pm-project-overview-leonardo-velazquez.jpg"
@@ -204,15 +231,47 @@
                 />
               </figure>
             </a>
-            <a href="project-day-won.html">
+            <a href="project-vpm.html">
               <div class="project-details-overlay rounded-small">
                 <h2 class="work-grid-project-title">V.PM</h2>
-                <h4 class="work-grid-project-category">Packaging</h4>
+                <h4 class="work-grid-project-category">
+                  Visual Identity &amp; Packaging
+                </h4>
               </div>
             </a>
           </li>
           <li class="work-page-grid-item project-container rounded-small">
-            <a href="project-day-won.html" class="margin-bottom">
+            <a
+              aria-label="View Portrait &amp; Tabletop Photography"
+              href="portrait-photos.html"
+              class="margin-bottom"
+            >
+              <figure>
+                <img
+                  src="assets/project-overviews/photography-project-overview-leonardo-velazquez.jpg"
+                  width="1920"
+                  height="1080"
+                  class="rounded-small"
+                  loading="lazy"
+                  alt="Portrait &amp; Tabletop Photography"
+                />
+              </figure>
+            </a>
+            <a href="portrait-photos.html">
+              <div class="project-details-overlay rounded-small">
+                <h2 class="work-grid-project-title">
+                  Portrait &amp; Tabletop Photography
+                </h2>
+                <h4 class="work-grid-project-category">Studio Photography</h4>
+              </div>
+            </a>
+          </li>
+          <li class="work-page-grid-item project-container rounded-small">
+            <a
+              aria-label="View Capstone"
+              href="project-capstone.html"
+              class="margin-bottom"
+            >
               <figure>
                 <img
                   src="assets/project-overviews/capstone-project-overview-leonardo-velazquez.jpg"
@@ -220,19 +279,22 @@
                   height="1080"
                   class="rounded-small"
                   loading="lazy"
-                  alt="Describe your project"
+                  alt="Capstone"
                 />
               </figure>
             </a>
-            <a href="project-day-won.html">
+            <a href="project-capstone.html">
               <div class="project-details-overlay rounded-small">
                 <h2 class="work-grid-project-title">Capstone</h2>
-                <h4 class="work-grid-project-category">Branding</h4>
               </div>
             </a>
           </li>
           <li class="work-page-grid-item project-container rounded-small">
-            <a href="press-kit.html" class="margin-bottom">
+            <a
+              aria-label="View Garfield Discotheque"
+              href="press-kit.html"
+              class="margin-bottom"
+            >
               <figure>
                 <img
                   src="assets/project-overviews/garfield-discoteque-project-overview-leonardo-velazquez.jpg"
@@ -240,7 +302,7 @@
                   height="1080"
                   class="rounded-small"
                   loading="lazy"
-                  alt="Describe your project"
+                  alt="Garfield Discoteque"
                 />
               </figure>
             </a>
@@ -252,22 +314,27 @@
             </a>
           </li>
           <li class="work-page-grid-item project-container rounded-small">
-            <a href="portrait-photos.html" class="margin-bottom">
+            <a
+              aria-label="View Lullaby"
+              href="project-lullaby.html"
+              class="margin-bottom"
+            >
               <figure>
                 <img
-                  src="assets/project-overviews/photography-project-overview-leonardo-velazquez.jpg"
-                  width="1920"
-                  height="1080"
                   class="rounded-small"
-                  loading="lazy"
-                  alt="Describe your project"
+                  src="assets/project-overviews/placeholder.jpg"
+                  width="1162"
+                  height="1451"
+                  alt="Paranormal event poster"
                 />
               </figure>
             </a>
-            <a href="portrait-photos.html">
+            <a href="project-lullaby.html">
               <div class="project-details-overlay rounded-small">
-                <h2 class="work-grid-project-title">Portrait &amp; Tabletop</h2>
-                <h4 class="work-grid-project-category">Photography</h4>
+                <h2 class="work-grid-project-title">Lullaby</h2>
+                <h4 class="work-grid-project-category">
+                  Art Direction &amp; Nightlife
+                </h4>
               </div>
             </a>
           </li>
@@ -310,29 +377,26 @@
         </p>
       </li>
       <li class="footer-highlights">
-        <h2>Awards & Recognition</h2>
-        <ul class="footer-awards-list">
-          <li class="footer-item">
-            <a href="#">Dean’s List – Year or Term</a>
-          </li>
-          <li class="footer-item">
-            <a href="#">Your Award – Name of Student Award and Year</a>
-          </li>
-          <li class="footer-item">
-            <a href="#">Honourable Mention – Project or Competition Name</a>
-          </li>
-          <li class="footer-item">
-            <a href="#">Other Recognition or Accolade</a>
-          </li>
-        </ul>
+        <h2>Selected work</h2>
+        <p><a href="project-lullaby.html">Lullaby</a></p>
+        <p><a href="project-range.html">RANGE</a></p>
       </li>
 
       <li class="footer-contact-social">
         <h2>Contact & Social</h2>
         <ul class="footer-socials-list">
-          <li class="footer-item"><a href="#">Insta</a></li>
-          <li class="footer-item"><a href="#">LinkedIn</a></li>
-          <li class="footer-item"><a href="#">Behance</a></li>
+          <li class="footer-item">
+            <a href="https://www.instagram.com/leo_velarte_/">Instagram</a>
+          </li>
+          <li class="footer-item">
+            <a
+              href="https://www.linkedin.com/in/leonardo-velazquez-chazaro-3b47b2435/"
+              >LinkedIn</a
+            >
+          </li>
+          <li class="footer-item">
+            <a href="https://www.behance.net/leonardvelazqu12">Behance</a>
+          </li>
         </ul>
       </li>
 
@@ -348,44 +412,5 @@
       </li>
     </ul>
     <script src="./js/phrase-rotator.js"></script>
-
-    <script>
-      const toggle = document.getElementById("themeToggle");
-      const root = document.documentElement;
-
-      // Remember the selected theme
-      const savedTheme = localStorage.getItem("portfolio-theme");
-      root.dataset.theme = savedTheme === "night" ? "night" : "day";
-
-      function updateToggle() {
-        if (!toggle) return;
-
-        const isNight = root.dataset.theme === "night";
-
-        toggle.querySelector(".theme-toggle-label").textContent = isNight
-          ? "Night"
-          : "Day";
-
-        toggle.setAttribute("aria-pressed", String(isNight));
-        toggle.setAttribute(
-          "aria-label",
-          isNight ? "Switch to day mode" : "Switch to night mode",
-        );
-      }
-
-      updateToggle();
-
-      if (toggle) {
-        toggle.addEventListener("click", () => {
-          const isNight = root.dataset.theme === "night";
-
-          root.dataset.theme = isNight ? "day" : "night";
-
-          localStorage.setItem("portfolio-theme", root.dataset.theme);
-
-          updateToggle();
-        });
-      }
-    </script>
   </body>
 </html>
